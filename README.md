@@ -1,1 +1,1 @@
-# games
+# Superfun Games
