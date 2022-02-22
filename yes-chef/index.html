@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <title>Yes, Chef! The Cooking Card Game</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+</head>
+<body class="antialiased">
+  
+  <div class="hero">
+
+    <div class="tophat lg:w-1/2 ml-auto text-sm text-center pt-3 pb-6 text-white mb-8">
+      <strong>Superfun Games</strong> presents <img src="images/logo-small-white.svg" class="inline" alt="">
+    </div>
+
+  <div class="md:flex">
+
+  <div class="order-last md:w-1/2 md:flex md:items-center">
+  <div class="container mx-auto px-12 text-center">
+    <h1 class="text-5xl font-semibold mb-8">The <span id="rough">cooking</span><br> card game</h1>
+    <p class="text-xl mb-8">Order up! Collect ingredients and match recipes in an epic chef battle.</p>
+    <a href="#buy" class="buy inline-block mb-12 text-xl underline underline-offset-2 font-semibold decoration-yellow">Buy Now</a>
+  </div>
+  </div>
+
+  <div class="deck px-24 text-center pb-24 md:w-1/2">
+    <img src="images/card-back.png" class="drop-shadow-2xl mb-8 md:px-16" alt="">
+    <img src="images/game-meta.svg" class="inline" alt="">
+  </div>
+
+  </div>
+
+  </div>
+
+  <div class="play how-to">
+    <div class="container mx-auto text-center">
+    <h2 class="text-xs text-red font-bold">HOW TO PLAY</h2>
+    <p class="text-2xl font-semibold mb-4">Let’s get cooking!</p>
+    </div>
+  <marquee class="whitespace-nowrap pb-16 w-full">
+  <img class="inline drop-shadow-xl" width="180" src="images/deck/action-peek-1.png" alt="">
+  <img class="inline drop-shadow-xl rotate-2" width="180" src="images/deck/action-steal-1.png" alt="">
+  <img class="inline drop-shadow-xl -rotate-2" width="180" src="images/deck/card-ingredient-garlic-1.png" alt="">
+  <img class="inline drop-shadow-xl" width="180" src="images/deck/dish-fancy-2.png" alt="">
+  <img class="inline drop-shadow-xl rotate-2" width="180" src="images/deck/card-ingredient-wildcard-produce-1.png" alt="">
+  <img class="inline drop-shadow-xl -rotate-2" width="180" src="images/deck/dish-sweets-5.png" alt="">
+  <img class="inline drop-shadow-xl" width="180" src="images/deck/card-ingredient-oyster-1.png" alt="">
+  <img class="inline drop-shadow-xl rotate-2" width="180" src="images/deck/action-minus-1.png" alt="">
+  <img class="inline drop-shadow-xl" width="180" src="images/deck/action-peek-1.png" alt="">
+  <img class="inline drop-shadow-xl rotate-2" width="180" src="images/deck/action-steal-1.png" alt="">
+  <img class="inline drop-shadow-xl -rotate-2" width="180" src="images/deck/card-ingredient-garlic-1.png" alt="">
+  <img class="inline drop-shadow-xl" width="180" src="images/deck/dish-fancy-2.png" alt="">
+  <img class="inline drop-shadow-xl rotate-2" width="180" src="images/deck/card-ingredient-wildcard-produce-1.png" alt="">
+  <img class="inline drop-shadow-xl -rotate-2" width="180" src="images/deck/dish-sweets-5.png" alt="">
+  <img class="inline drop-shadow-xl" width="180" src="images/deck/card-ingredient-oyster-1.png" alt="">
+  <img class="inline drop-shadow-xl rotate-2" width="180" src="images/deck/action-minus-1.png" alt="">
+  </marquee>
+  </div>
+
+  <div class="feature one mx-auto md:flex justify-items-center mb-16 px-12 text-center">
+    <div class="container mx-auto md:flex md:items-center">
+      <div><h3 class="text-2xl font-semibold mb-2">Match ingridients to recipes</h3>
+      <p>Draw cards and make sets worth the most coins to win the game.</p>
+    </div>
+    </div>
+    <img src="images/cards-match.png" alt="">
+  </div>
+
+  <div class="feature two mx-auto md:flex mb-16 px-12 text-center">
+    <div class="container md:flex md:items-center order-last">
+      <div><h3 class="text-2xl font-semibold mb-2">Spoil the other chefs</h3>
+      <p>Use action cards to steal ingredients, leave bad reviews on Whelp, or pocket some extra coin.</p>
+    </div>
+    </div>
+    <img src="images/cards-action.png" alt="">
+  </div>
+
+  <div class="feature three mx-auto md:flex mb-16 px-12 text-center">
+    <div class="container md:flex md:items-center">
+      <div><h3 class="text-2xl font-semibold mb-2">Become the best</h3>
+      <p>Complete 3 dishes worth the most coins and you win!</p>
+    </div>
+    </div>
+    <img src="images/cards-done.png" alt="">
+  </div>
+
+  <div class="cta bg-red">
+  <div class="max-w-2xl mx-auto text-center py-16 px-4 sm:py-48 sm:px-6 lg:px-8 text-white">
+    <h2 class="text-3xl font-semibold sm:text-4xl mb-4">Get it now!</h2>
+    <p class="text-lg leading-6 mb-4">98 card premium deck</p>
+    <p class="text-lg leading-6 mb-4">Rules cards for easy reference</p>
+    <p class="text-lg leading-6 mb-4">Approved by our nephew, George</p>
+    <a href="#" class="buy mt-8 inline-block px-5 py-3 text-base font-medium rounded-md text-gray-500 bg-white"> $30 <span class="text-black underline underline-offset-2 decoration-yellow">Buy Now</span> </a>
+  </div>
+</div>
+
+
+
+<div class="">
+  <div class="max-w-5xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8">
+    <div class="divide-y-2 divide-gray-200">
+      <h2 class="text-center text-3xl font-extrabold text-gray-900 sm:text-4xl">Burning Questions</h2>
+      <dl class="mt-6 space-y-6 divide-y divide-gray-200">
+        <div class="question pt-6">
+          <dt class="text-lg">
+            <!-- Expand/collapse question button -->
+            <button type="button" class="text-left w-full flex justify-between items-start text-gray-400" aria-controls="faq-0" aria-expanded="false">
+              <span class="font-medium text-gray-900"> Gameplay and rules </span>
+              <span class="ml-6 h-7 flex items-center">
+                <svg class="rotate-0 h-6 w-6 transform ease-in duration-200" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="red">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+              </span>
+            </button>
+          </dt>
+          <dd class="mt-2 pr-12" id="faq-0">
+            <p class="text-base text-gray-500">This content is coming soon! Check back shortly.</p>
+          </dd>
+        </div>
+
+        <div class="question pt-6">
+          <dt class="text-lg">
+            <!-- Expand/collapse question button -->
+            <button type="button" class="text-left w-full flex justify-between items-start text-gray-400" aria-controls="faq-0" aria-expanded="false">
+              <span class="font-medium text-gray-900"> How does the crowd funding work?</span>
+              <span class="ml-6 h-7 flex items-center">
+                <svg class="rotate-0 h-6 w-6 transform ease-in duration-200" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="red">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+              </span>
+            </button>
+          </dt>
+          <dd class="mt-2 pr-12" id="faq-0">
+            <p class="text-base text-gray-500">This content is coming soon! Check back shortly.</p>
+          </dd>
+        </div>
+
+        <div class="question pt-6">
+          <dt class="text-lg">
+            <!-- Expand/collapse question button -->
+            <button type="button" class="text-left w-full flex justify-between items-start text-gray-400" aria-controls="faq-0" aria-expanded="false">
+              <span class="font-medium text-gray-900"> Parents Guide</span>
+              <span class="ml-6 h-7 flex items-center">
+                <svg class="rotate-0 h-6 w-6 transform ease-in duration-200" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="red">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+              </span>
+            </button>
+          </dt>
+          <dd class="mt-2 pr-12" id="faq-0">
+            <p class="text-base text-gray-500">This content is coming soon! Check back shortly.</p>
+          </dd>
+        </div>
+
+        <div class="question pt-6">
+          <dt class="text-lg">
+            <!-- Expand/collapse question button -->
+            <button type="button" class="text-left w-full flex justify-between items-start text-gray-400" aria-controls="faq-0" aria-expanded="false">
+              <span class="font-medium text-gray-900"> Tips for Big Kids (aka adults)</span>
+              <span class="ml-6 h-7 flex items-center">
+                <svg class="rotate-0 h-6 w-6 transform ease-in duration-200" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="red">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+              </span>
+            </button>
+          </dt>
+          <dd class="mt-2 pr-12" id="faq-0">
+            <p class="text-base text-gray-500">This content is coming soon! Check back shortly.</p>
+          </dd>
+        </div>
+
+        <div class="question pt-6">
+          <dt class="text-lg">
+            <!-- Expand/collapse question button -->
+            <button type="button" class="text-left w-full flex justify-between items-start text-gray-400" aria-controls="faq-0" aria-expanded="false">
+              <span class="font-medium text-gray-900"> Other Superfun Games</span>
+              <span class="ml-6 h-7 flex items-center">
+                <svg class="rotate-0 h-6 w-6 transform ease-in duration-200" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="red">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+              </span>
+            </button>
+          </dt>
+          <dd class="mt-2 pr-12" id="faq-0">
+            <p class="text-base text-gray-500">This content is coming soon! Check back shortly.</p>
+          </dd>
+        </div>
+
+        <!-- More questions... -->
+      </dl>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-orange-light">
+  <div class="max-w-5xl mx-auto flex justify-between py-12 px-4 sm:py-16 sm:px-6 lg:px-8">
+  <p>&copy; 2022 Superfun</p>
+  <p><a class="underline underline-offset-2" href="#contact">Contact</a></p>
+  </div>
+</footer>
+
+
+
+<script>
+  // yeah yeah it's jquery so what
+  $( document ).ready(function() {
+   $('dd').toggleClass("hidden");
+
+   $( "dt" ).on( "click", function() {
+    $(this).next('dd').toggleClass("hidden");
+    $(this).find('svg').toggleClass("-rotate-45 rotate-0")
+    });
+
+   $( ".buy" ).on( "click", function() {
+    $(this).html("Coming soon!");
+    return false;
+    });
+
+
+
+  });
+
+</script>
+
+<script type="module">
+      import { annotate } from 'https://unpkg.com/rough-notation?module';
+      
+      const n1 = document.querySelector('#rough');
+      
+      const a1 = annotate(n1, { type: 'underline', color: '#FFDC00', strokeWidth: 7 });
+      
+      a1.show();
+
+      
+    </script>
+
+</body>
+</html>
