@@ -47,7 +47,7 @@
 
   <div class="order-last md:w-1/2 md:flex md:items-center">
   <div class="container mx-auto px-12 text-center">
-    <h1 class="text-6xl font-semibold mb-8">The <span id="rough">cooking</span><br> card game</h1>
+    <h1 class="text-2xl md:text-6xl font-semibold mb-8">The <span id="rough">cooking</span><br> card game</h1>
     <p class="text-xl mb-8">Order up! Collect ingredients and match <br class="hidden lg:block">recipes in an epic chef battle.</p>
     <a href="#buy" class="buy inline-block mb-4 text-xl font-semibold bg-black text-white rounded-full px-6 py-4 hover:scale-125 hover:rotate-2 transition-all">Buy Now</a>
     <p class="font-medium mb-8"><a class="text-red" href="#">Print Deck</a> · <a class="text-red" href="deck.html">Card Reference</a></p>
@@ -88,36 +88,48 @@
   </marquee>
   </div>
 
-  <div class="feature one max-w-6xl mx-auto md:flex justify-items-center mb-16 px-12 lg:px-0 text-center">
-    <div class="container md:w-5/12 mx-auto md:flex md:items-center md:px-8 lg:px-20">
+  <div class="feature one max-w-6xl mx-auto md:flex justify-items-center mb-16 text-center overflow-hidden md:overflow-visible">
+    <div class="container md:w-5/12 mx-auto md:flex md:items-center px-8 lg:px-20">
       <div><h3 class="text-2xl font-semibold mb-2">Match ingridients to recipes</h3>
       <p>Draw cards and make sets worth the most coins to win the game.</p>
     </div>
     </div>
-    <img class="md:w-7/12" src="images/cards-match.png" alt="">
+    <div class="md:w-7/12 art relative px-4 md:px-0 pt-10 md:pt-0">
+      <img class="cards hidden md:block" src="images/cards-match.png" alt="">
+      <img class="cards md:hidden" src="images/cards-match-mobile.png" alt="">
+      <img class="absolute top-0" src="images/cards-match-blob.svg" alt="">
+    </div>
   </div>
 
-  <div class="feature two max-w-6xl mx-auto md:flex mb-16 px-12 lg:px-0 text-center">
-    <div class="container md:w-5/12 md:flex md:items-center md:px-8 lg:px-20 order-last">
+  <div class="feature two max-w-6xl mx-auto md:flex mb-16 text-center overflow-hidden md:overflow-visible">
+    <div class="container md:w-5/12 md:flex md:items-center px-8 lg:px-20 order-last">
       <div><h3 class="text-2xl font-semibold mb-2">Spoil the other chefs</h3>
       <p>Use action cards to steal ingredients, leave bad reviews on Whelp, or pocket some extra coin.</p>
     </div>
     </div>
-    <img class="md:w-7/12" src="images/cards-action.png" alt="">
+    <div class="md:w-7/12 art relative">
+      <img class="cards hidden md:block" src="images/cards-action.png" alt="">
+      <img class="cards md:hidden" src="images/cards-action-mobile.png" alt="">
+      <img class="absolute top-0" src="images/cards-action-blob.svg" alt="">
+    </div>
   </div>
 
-  <div class="feature three max-w-6xl mx-auto md:flex mb-16 px-12 lg:px-0 text-center">
-    <div class="container md:w-5/12 md:flex md:items-center md:px-8 lg:px-20">
+  <div class="feature three max-w-6xl mx-auto md:flex mb-16 text-center overflow-hidden md:overflow-visible">
+    <div class="container md:w-5/12 md:flex md:items-center px-8 lg:px-20">
       <div><h3 class="text-2xl font-semibold mb-2">Become the best</h3>
       <p>Complete 3 dishes worth the most coins and you win!</p>
     </div>
     </div>
-    <img class="md:w-7/12" src="images/cards-done.png" alt="">
+    <div class="md:w-7/12 art relative py-10 md:py-0">
+      <img class="cards hidden md:block" src="images/cards-done.png" alt="">
+      <img class="cards md:hidden" src="images/cards-done-mobile.png" alt="">
+      <img class="absolute top-0" src="images/cards-done-blob.svg" alt="">
+    </div>
   </div>
 
   <div class="cta">
   <div class="max-w-2xl mx-auto text-center py-16 px-4 sm:py-48 sm:px-6 lg:px-8 text-white">
-    <h2 class="text-3xl font-semibold sm:text-6xl mb-4">Get it now!</h2>
+    <h2 class="text-3xl font-semibold text-2xl md:text-6xl mb-4">Get it now!</h2>
     <div class="points inline-block mt-6 font-medium">
     <p class="check flex items-center text-xl leading-6 mb-4">108 card premium deck</p>
     <p class="check flex items-center text-xl leading-6 mb-4">Rules cards for easy reference</p>
@@ -148,8 +160,9 @@
                 </span>
               </button>
             </dt>
-            <dd class="mt-2 pr-12" id="faq-0">
-              <p class="text-base text-gray-500">This content is coming soon! Check back shortly.</p>
+            <dd class="mt-2 pr-12 text-base text-gray-500" id="faq-0">
+              <p class="mb-4">Yes, Chef is a pick-up and play game for all ages. We like a "rule card" instead of a "rule book". The game should take just minutes to learn.</p>
+              <p class="">Full rules coming soon...</p>
             </dd>
           </div>
 
