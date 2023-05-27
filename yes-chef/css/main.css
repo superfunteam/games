@@ -515,6 +515,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mt-2 {
   margin-top: 0.5rem;
 }
+.-ml-\[10\%\] {
+  margin-left: -10%;
+}
 .mt-1 {
   margin-top: 0.25rem;
 }
@@ -569,6 +572,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-6 {
   width: 1.5rem;
 }
+.w-1\/4 {
+  width: 25%;
+}
+.w-3\/4 {
+  width: 75%;
+}
 .max-w-3xl {
   max-width: 48rem;
 }
@@ -580,6 +589,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .max-w-2xl {
   max-width: 42rem;
+}
+.max-w-\[120\%\] {
+  max-width: 120%;
 }
 .grow {
   flex-grow: 1;
@@ -1240,6 +1252,10 @@ footer{
     left: 0px;
   }
 
+  .md\:-ml-\[15\%\] {
+    margin-left: -15%;
+  }
+
   .md\:block {
     display: block;
   }
@@ -1284,6 +1300,10 @@ footer{
     width: 25%;
   }
 
+  .md\:max-w-\[130\%\] {
+    max-width: 130%;
+  }
+
   .md\:items-center {
     align-items: center;
   }
@@ -1294,6 +1314,10 @@ footer{
 
   .md\:overflow-visible {
     overflow: visible;
+  }
+
+  .md\:rounded-2xl {
+    border-radius: 1rem;
   }
 
   .md\:px-24 {
