@@ -1201,6 +1201,14 @@ video {
   padding-top: 1rem;
 }
 
+.pb-8 {
+  padding-bottom: 2rem;
+}
+
+.pt-8 {
+  padding-top: 2rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1273,6 +1281,14 @@ video {
 
 .leading-tight {
   line-height: 1.25;
+}
+
+.leading-\[\.5em\] {
+  line-height: .5em;
+}
+
+.leading-\[1\.25em\] {
+  line-height: 1.25em;
 }
 
 .-tracking-\[\.0375rem\] {
@@ -1687,6 +1703,22 @@ strong, nav a, .font-bold{
     top: 1rem;
   }
 
+  .md\:bottom-\[1\.125\%\] {
+    bottom: 1.125%;
+  }
+
+  .md\:bottom-\[1\.5\%\] {
+    bottom: 1.5%;
+  }
+
+  .md\:bottom-\[1\%\] {
+    bottom: 1%;
+  }
+
+  .md\:-bottom-\[1\%\] {
+    bottom: -1%;
+  }
+
   .md\:inline-block {
     display: inline-block;
   }
@@ -1767,8 +1799,35 @@ strong, nav a, .font-bold{
     padding-bottom: 1.25rem;
   }
 
+  .md\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .md\:py-12 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .md\:py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
   .md\:pr-36 {
     padding-right: 9rem;
+  }
+
+  .md\:pt-8 {
+    padding-top: 2rem;
+  }
+
+  .md\:pt-12 {
+    padding-top: 3rem;
+  }
+
+  .md\:pt-16 {
+    padding-top: 4rem;
   }
 
   .md\:text-2xl {
@@ -1783,6 +1842,47 @@ strong, nav a, .font-bold{
   .md\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .md\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .md\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+
+  .md\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .md\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .md\:leading-\[\.5em\] {
+    line-height: .5em;
+  }
+
+  .md\:leading-\[1em\] {
+    line-height: 1em;
+  }
+
+  .md\:leading-\[1\.5em\] {
+    line-height: 1.5em;
+  }
+
+  .md\:leading-\[1\.25em\] {
+    line-height: 1.25em;
   }
 }
 
@@ -1945,6 +2045,18 @@ strong, nav a, .font-bold{
     padding-top: 2rem;
   }
 
+  .lg\:pb-8 {
+    padding-bottom: 2rem;
+  }
+
+  .lg\:pb-2 {
+    padding-bottom: 0.5rem;
+  }
+
+  .lg\:pb-0 {
+    padding-bottom: 0px;
+  }
+
   .lg\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -1958,6 +2070,15 @@ strong, nav a, .font-bold{
   .lg\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .lg\:text-7xl {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+
+  .lg\:text-\[60px\] {
+    font-size: 60px;
   }
 }
 
@@ -1978,6 +2099,10 @@ strong, nav a, .font-bold{
     bottom: 6.5%;
   }
 
+  .xl\:bottom-\[2\%\] {
+    bottom: 2%;
+  }
+
   .xl\:w-64 {
     width: 16rem;
   }
@@ -1988,6 +2113,28 @@ strong, nav a, .font-bold{
 
   .xl\:text-\[75px\] {
     font-size: 75px;
+  }
+
+  .xl\:text-\[72px\] {
+    font-size: 72px;
+  }
+
+  .xl\:text-\[60px\] {
+    font-size: 60px;
+  }
+
+  .xl\:text-\[64px\] {
+    font-size: 64px;
+  }
+
+  .xl\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .xl\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 }
 
