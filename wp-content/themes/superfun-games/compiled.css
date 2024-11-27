@@ -1010,6 +1010,11 @@ video {
   background-color: rgb(255 92 0 / var(--tw-bg-opacity, 1));
 }
 
+.bg-green-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 255 133 / var(--tw-bg-opacity, 1));
+}
+
 .object-contain {
   -o-object-fit: contain;
      object-fit: contain;
@@ -1100,6 +1105,11 @@ video {
   padding-bottom: 1.5rem;
 }
 
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .pb-16 {
   padding-bottom: 4rem;
 }
@@ -1130,6 +1140,10 @@ video {
 
 .pt-4 {
   padding-top: 1rem;
+}
+
+.pb-20 {
+  padding-bottom: 5rem;
 }
 
 .text-center {
@@ -1202,6 +1216,10 @@ video {
 
 .leading-none {
   line-height: 1;
+}
+
+.\!leading-none {
+  line-height: 1 !important;
 }
 
 .-tracking-\[\.0375rem\] {
@@ -1870,8 +1888,51 @@ strong, nav a, .font-bold{
     bottom: 6.5%;
   }
 
+  .xl\:-right-16 {
+    right: -4rem;
+  }
+
+  .xl\:w-56 {
+    width: 14rem;
+  }
+
+  .xl\:w-64 {
+    width: 16rem;
+  }
+
+  .xl\:w-72 {
+    width: 18rem;
+  }
+
   .xl\:text-\[80px\] {
     font-size: 80px;
+  }
+
+  .xl\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .xl\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .xl\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .xl\:text-\[64px\] {
+    font-size: 64px;
+  }
+
+  .xl\:text-\[48px\] {
+    font-size: 48px;
+  }
+
+  .xl\:text-\[32px\] {
+    font-size: 32px;
   }
 }
 
