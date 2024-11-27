@@ -654,6 +654,14 @@ video {
   top: 25%;
 }
 
+.bottom-6 {
+  bottom: 1.5rem;
+}
+
+.bottom-4 {
+  bottom: 1rem;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -1110,6 +1118,11 @@ video {
   padding-bottom: 2rem;
 }
 
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 .pb-16 {
   padding-bottom: 4rem;
 }
@@ -1144,6 +1157,14 @@ video {
 
 .pb-20 {
   padding-bottom: 5rem;
+}
+
+.pt-8 {
+  padding-top: 2rem;
+}
+
+.pb-12 {
+  padding-bottom: 3rem;
 }
 
 .text-center {
@@ -1273,6 +1294,38 @@ video {
 
 .opacity-80 {
   opacity: 0.8;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-90 {
+  opacity: 0.9;
+}
+
+.opacity-95 {
+  opacity: 0.95;
+}
+
+.mix-blend-multiply {
+  mix-blend-mode: multiply;
+}
+
+.mix-blend-darken {
+  mix-blend-mode: darken;
+}
+
+.mix-blend-hard-light {
+  mix-blend-mode: hard-light;
+}
+
+.mix-blend-soft-light {
+  mix-blend-mode: soft-light;
+}
+
+.mix-blend-saturation {
+  mix-blend-mode: saturation;
 }
 
 .shadow-2xl {
@@ -1666,6 +1719,14 @@ strong, nav a, .font-bold{
     top: 1rem;
   }
 
+  .md\:bottom-12 {
+    bottom: 3rem;
+  }
+
+  .md\:bottom-8 {
+    bottom: 2rem;
+  }
+
   .md\:inline {
     display: inline;
   }
@@ -1933,6 +1994,10 @@ strong, nav a, .font-bold{
 
   .xl\:text-\[32px\] {
     font-size: 32px;
+  }
+
+  .xl\:text-\[75px\] {
+    font-size: 75px;
   }
 }
 
