@@ -798,6 +798,14 @@ video {
   width: 100%;
 }
 
+.w-16 {
+  width: 4rem;
+}
+
+.w-14 {
+  width: 3.5rem;
+}
+
 .origin-top-right {
   transform-origin: top right;
 }
@@ -1776,6 +1784,10 @@ strong, nav a, .font-bold{
 
   .md\:w-6 {
     width: 1.5rem;
+  }
+
+  .md\:w-12 {
+    width: 3rem;
   }
 
   .md\:rotate-2 {
