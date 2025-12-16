@@ -767,6 +767,10 @@ video {
   margin-bottom: 6rem;
 }
 
+.mb-32 {
+  margin-bottom: 8rem;
+}
+
 .block {
   display: block;
 }
