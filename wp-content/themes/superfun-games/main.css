@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Space Grotesk", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+strong, nav a, .font-bold{
+  font-family: 'Open Sauce Sans', sans-serif;
+}
+
+.bg-primary{
+  @apply bg-green-500
+}
+
+.text-primary{
+  @apply text-green-500
+}
+
+    .shadow-hard{
+      box-shadow:16px 16px 0 #000;
+    }
+    .dark .shadow-hard{
+      box-shadow:16px 16px 0 #fff;
+    }
+    .reverse-z-index > *:nth-child(1) {
+      z-index: 10;
+    }
+    .reverse-z-index > *:nth-child(2) {
+      z-index: 9;
+    }
+    .reverse-z-index > *:nth-child(3) {
+      z-index: 8;
+    }
+    .reverse-z-index > *:nth-child(4) {
+      z-index: 7;
+    }
+    .reverse-z-index > *:nth-child(5) {
+      z-index: 6;
+    }
+    .reverse-z-index > *:nth-child(6) {
+      z-index: 5;
+    }
+    .reverse-z-index > *:nth-child(7) {
+      z-index: 4;
+    }
+    .reverse-z-index > *:nth-child(8) {
+      z-index: 3;
+    }
+    .reverse-z-index > *:nth-child(9) {
+      z-index: 2;
+    }
+    .reverse-z-index > *:nth-child(10) {
+      z-index: 1;
+    }
+
+
+
+.desc p{
+  @apply mb-8;
+}
+
+.tag-cards .images img{
+  @apply rounded-2xl rotate-2 shadow-xl inline-block mr-20
+}
+
+.tag-cards .images img:nth-child(even){
+  @apply rotate-2 ml-20
+}
+
+.tag-cards .images img:nth-child(odd){
+  @apply -rotate-2 mr-20
+}
+
+.tag-playdate .images img{
+  @apply border-2 border-black dark:border-white shadow-hard
+}
+
+.tag-playdate .images img:nth-child(even){
+  @apply mr-20;
+}
+.tag-playdate .images img:nth-child(odd){
+  @apply ml-20;
+}
+
+
+
+
+/** Deck spinner **/
+
+.scene{
+  height: 400px;
+  position: relative;
+}
+
+.scene:after{
+    content: " ";
+    display: block;
+    background: #EB4626;
+    left: 20%;
+    right: 20%;
+    top: 0;
+    bottom: 20px;
+    position: absolute;
+    filter: blur(30px);
+    z-index: 9;
+    opacity: 0.7;
+  }
+
+.box {
+  width: 220px;
+  height: 300px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(-50px);
+  transition: transform 1s;
+  animation: rotate 8s infinite; 
+  margin: 0 auto;
+}
+
+.box.show-front  { transform: translateZ( -50px) rotateY(   0deg); }
+.box.show-back   { transform: translateZ( -50px) rotateY(-180deg); }
+.box.show-right  { transform: translateZ(-150px) rotateY( -90deg); }
+.box.show-left   { transform: translateZ(-150px) rotateY(  90deg); }
+
+
+.box__face {
+  position: absolute;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.box__face--front,
+.box__face--back {
+  width: 220px;
+  height: 300px;
+  line-height: 300px;
+}
+
+.box__face--right,
+.box__face--left {
+  width: 140px;
+  height: 300px;
+  left: 80px;
+  line-height: 300px;
+}
+
+.box__face--front  { background: #fff url(https://yeschef.superfun.games/images/deck/hi-rez/box-front-shade.png) no-repeat; background-size:cover; }
+.box__face--right  { background: #fff url(https://yeschef.superfun.games/images/deck/hi-rez/box-right-shade.png) no-repeat; background-size:cover; }
+.box__face--back   { background: #fff url(https://yeschef.superfun.games/images/deck/hi-rez/box-back-shade.png) no-repeat; background-size:cover; }
+.box__face--left   { background: #fff url(https://yeschef.superfun.games/images/deck/hi-rez/box-left-shade.png) no-repeat; background-size:cover; }
+
+.box__face--front  { transform: rotateY(  0deg) translateZ( 70px); }
+.box__face--back   { transform: rotateY(180deg) translateZ( 70px); }
+
+.box__face--right  { transform: rotateY( 90deg) translateZ(70px); }
+.box__face--left   { transform: rotateY(-90deg) translateZ(150px); }
+
+
+
+@keyframes rotate {
+  0% {
+    transform: translateZ( -50px) rotateY(0deg) scale(1.4);
+  }
+  
+  70% {
+    transform: translateZ( -50px) rotateY(360deg) scale(1.4);
+  }
+  
+  100% {
+    transform: translateZ( -50px) rotateY(360deg) scale(1.4);
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.overflow-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.overflow-scroll {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
