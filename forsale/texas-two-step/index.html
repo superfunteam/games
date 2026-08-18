@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Texas Two Step &ndash; A daily word game for your newsroom | Superfun Games</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FFFFFF">
+
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <link rel="apple-touch-icon" href="assets/icon.png">
+
+  <meta name="description" content="Texas Two Step is a complete, whitelabel daily word game. Ready to launch under your brand. Every newsroom needs a game.">
+
+  <!-- Social -->
+  <meta property="og:url" content="https://superfun.games/forsale/texas-two-step/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Texas Two Step &ndash; A daily word game for your newsroom">
+  <meta property="og:description" content="A complete, whitelabel daily word game. Ready to launch under your brand.">
+  <meta property="og:image" content="https://superfun.games/forsale/texas-two-step/assets/icon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Texas Two Step &ndash; A daily word game for your newsroom">
+  <meta name="twitter:description" content="A complete, whitelabel daily word game. Ready to launch under your brand.">
+  <meta name="twitter:image" content="https://superfun.games/forsale/texas-two-step/assets/icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/open-sauce-one?styles=140025,140021,140018" rel="stylesheet">
+
+  <style>
+    :root{
+      --ink:#14161A;
+      --muted:#6B7280;
+      --line:#E7E9ED;
+      --paper:#FFFFFF;
+      --panel:#F7F8FA;
+      --surface:#FFFFFF;
+      --green:#f75a38;
+      --green-ink:#3a1104;
+      --radius:18px;
+      --maxw:1080px;
+    }
+    :root.dark{
+      --ink:#F3F4F6;
+      --muted:#9AA1AC;
+      --line:#23262B;
+      --paper:#0B0C0E;
+      --panel:#131519;
+      --surface:#171B21;
+      --green:#f75a38;
+      --green-ink:#3a1104;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Open Sauce One","Space Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--ink);
+      background:var(--paper);
+      -webkit-font-smoothing:antialiased;
+      line-height:1.55;
+    }
+    h1,h2,h3,.grotesk{font-family:"Space Grotesk",sans-serif;}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+    /* ---------- Header ---------- */
+    header.site{
+      position:sticky;top:0;z-index:50;
+      background:color-mix(in srgb, var(--paper) 88%, transparent);
+      backdrop-filter:saturate(1.2) blur(8px);
+      border-bottom:1px solid var(--line);
+    }
+    .site-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;align-items:center;gap:10px;font-family:"Space Grotesk";font-weight:700;font-size:18px}
+    .brand img{width:34px;height:34px}
+    /* Very narrow screens: drop the wordmark, keep the logo mark so the header stays uncramped */
+    @media(max-width:430px){.brand span{display:none}}
+    .brand .dark-logo{display:none}
+    :root.dark .brand .light-logo{display:none}
+    :root.dark .brand .dark-logo{display:block}
+    .head-actions{display:flex;align-items:center;gap:8px}
+    .icon-btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:38px;height:38px;border-radius:10px;border:1px solid var(--line);
+      background:transparent;color:var(--ink);cursor:pointer;opacity:.7}
+    .icon-btn:hover{opacity:1}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;justify-content:center;
+      font-family:"Space Grotesk";font-weight:700;font-size:15px;
+      padding:11px 18px;border-radius:12px;border:1px solid transparent;cursor:pointer;
+      transition:transform .06s ease, background .15s ease, color .15s ease;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn-primary{background:var(--green);color:var(--green-ink)}
+    .btn-primary:hover{filter:brightness(.94)}
+    .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+    .btn-ghost:hover{background:var(--panel)}
+    .btn-dark{background:#14161A;color:#fff;border-color:#14161A}
+    .btn-dark:hover{background:#000}
+    :root.dark .btn-dark{border-color:rgba(255,255,255,.16)}
+    :root.dark .btn-dark:hover{background:#20242b}
+    .btn-lg{padding:15px 26px;font-size:17px;border-radius:14px}
+
+    /* ---------- Hero (app-store product header) ---------- */
+    .hero{padding:56px 0 40px}
+    .hero-top{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+    .appicon{
+      width:120px;height:120px;border-radius:28px;flex:0 0 auto;
+      background:var(--panel);
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 12px 30px -14px rgba(0,0,0,.45);
+      position:relative;overflow:hidden;
+    }
+    .appicon img{width:100%;height:100%;object-fit:cover;display:block}
+    .appicon:after{content:"";position:absolute;inset:0;border-radius:28px;border:1px solid rgba(0,0,0,.06)}
+    :root.dark .appicon:after{border-color:rgba(255,255,255,.08)}
+    .hero-headings{min-width:260px;flex:1}
+    .eyebrow{font-family:"Space Grotesk";font-weight:600;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin:0 0 6px}
+    .hero h1{font-size:clamp(38px,6vw,60px);line-height:1.02;margin:0 0 8px;letter-spacing:-1.5px;font-weight:700}
+    .hero .tagline{font-size:18px;color:var(--muted);margin:0}
+    /* 1px grid gap over a line-colored background paints clean internal borders in any layout */
+    .meta-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:22px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+    .meta{background:var(--paper);padding:14px 18px}
+    .meta .k{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);font-weight:600}
+    .meta .v{font-family:"Space Grotesk";font-weight:700;font-size:16px;margin-top:2px;display:flex;align-items:center;gap:6px}
+    .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+    /* Larger hero/CTA buttons on desktop */
+    @media(min-width:761px){.cta-row .btn-lg{padding:19px 40px;font-size:19px;border-radius:16px}}
+    /* Mobile: stack CTAs full-width, meta collapses to a 2x2 grid */
+    @media(max-width:760px){
+      .cta-row{flex-direction:column;gap:12px}
+      .cta-row .btn{width:100%}
+      .meta-row{grid-template-columns:repeat(2,1fr)}
+    }
+
+    /* ---------- Section scaffolding ---------- */
+    section.block{padding:26px 0}
+    .kicker{font-family:"Space Grotesk";font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:0 0 16px}
+
+    /* ---------- Screenshot carousel ---------- */
+    .shots{position:relative}
+    /* Both edges bleed to the viewport (margin calc(50% - 50vw) reaches each screen edge on
+       wide layouts, and resolves to -24px on mobile). The matching left padding
+       (calc(50vw - 50%)) pushes the FIRST card back to the content column, so the carousel
+       runs edge to edge but still starts where the heading does. Vertical padding gives the
+       phone shadows room to breathe instead of being sheared by overflow. */
+    .rail{
+      display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;
+      margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
+      padding:20px 24px 56px calc(50vw - 50%);
+      scrollbar-width:none;-ms-overflow-style:none;
+    }
+    .rail::-webkit-scrollbar{display:none}
+    /* Frames share one fixed height; width follows each screenshot's aspect ratio, so
+       tall phones and wide desktop shots line up at the same height in the same rail. */
+    :root{--shot-h:480px}
+    .frame{
+      scroll-snap-align:center;flex:0 0 auto;
+      padding:10px;background:var(--ink);border:1px solid var(--line);
+      box-shadow:0 2px 6px rgba(0,0,0,.06), 0 24px 48px -20px rgba(0,0,0,.42);
+    }
+    :root.dark .frame{background:#1b1e23;box-shadow:0 24px 48px -22px rgba(0,0,0,.8)}
+    .frame .screen{overflow:hidden;background:#fff;position:relative;height:var(--shot-h)}
+    .frame img{height:100%;width:auto;display:block}
+    /* Concentric corners: inner radius = outer radius - 10px frame padding, so the border
+       keeps a constant thickness around the bend. */
+    .phone{border-radius:30px}
+    .phone .screen{border-radius:20px}
+    .desktop{border-radius:30px}
+    .desktop .screen{border-radius:20px}
+
+    .rail-nav{display:flex;gap:22px;justify-content:center;align-items:center;margin-top:6px}
+    #dots{display:inline-flex;gap:7px;align-items:center}
+    .dot{width:8px;height:8px;border-radius:99px;background:var(--line);border:none;padding:0;cursor:pointer;transition:width .3s cubic-bezier(.4,0,.2,1),background .25s ease}
+    .dot:hover{background:var(--muted)}
+    .dot.active{background:var(--green);width:26px}
+    .arrow{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;display:none;align-items:center;justify-content:center;transition:background .18s ease,border-color .18s ease,transform .1s ease}
+    .arrow:hover{background:var(--panel);border-color:var(--muted)}
+    .arrow:active{transform:scale(.92)}
+    .arrow svg{width:17px;height:17px;display:block}
+    @media(min-width:760px){.arrow{display:inline-flex}}
+
+    /* ---------- Copy + features ---------- */
+    .copy-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+    @media(max-width:760px){.copy-grid{grid-template-columns:1fr;gap:28px}}
+    .lead{font-size:20px;line-height:1.6}
+    .lead strong{font-weight:700}
+    .features{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+    .features li{display:flex;gap:12px;align-items:flex-start}
+    .features .tick{flex:0 0 auto;width:24px;height:24px;border-radius:7px;background:var(--green);color:var(--green-ink);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;margin-top:2px}
+    .features .ft{font-weight:600}
+    .features .fd{color:var(--muted);font-size:14px}
+
+    .pitch{
+      margin:14px 0;padding:40px 32px;border-radius:var(--radius);
+      background:var(--panel);border:1px solid var(--line);text-align:center;
+    }
+    .pitch h2{font-size:clamp(26px,4vw,38px);margin:0 0 8px;letter-spacing:-.5px}
+    .pitch p{color:var(--muted);font-size:17px;margin:0 auto;max-width:560px}
+
+    /* ---------- Final CTA ---------- */
+    .final{padding:40px 0 20px;text-align:center}
+    .final h2{font-size:clamp(24px,4vw,34px);margin:0 0 8px}
+    .final p{color:var(--muted);margin:0 auto 24px;max-width:520px}
+    .final .cta-row{justify-content:center}
+
+    footer.site{border-top:1px solid var(--line);padding:26px 0;margin-top:24px}
+    .foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;color:var(--muted);font-size:14px}
+    .foot-inner a:hover{color:var(--ink)}
+
+    /* ===================== DEMO MODAL / BOTTOM SHEET ===================== */
+    .demo-overlay{
+      position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;
+      padding:24px;background:rgba(6,8,12,.72);
+      opacity:0;visibility:hidden;transition:opacity .28s ease,visibility 0s linear .28s;
+    }
+    .demo-overlay.open{opacity:1;visibility:visible;transition:opacity .28s ease}
+    .demo-modal{
+      position:relative;display:flex;width:min(920px,100%);max-height:min(88vh,720px);
+      background:var(--surface);border:1px solid var(--line);border-radius:24px;overflow:hidden;
+      box-shadow:0 40px 90px -30px rgba(0,0,0,.55);
+      transform:translateY(14px) scale(.97);opacity:0;transition:transform .34s cubic-bezier(.2,.9,.3,1.1),opacity .28s ease;
+    }
+    .demo-overlay.open .demo-modal{transform:none;opacity:1}
+
+    /* Left brand pane */
+    .demo-aside{
+      flex:0 0 42%;max-width:360px;padding:34px 32px;color:#3a1104;position:relative;overflow:hidden;
+      background:linear-gradient(165deg,#f75a38 0%,#e24d2b 60%,#c7401f 100%);
+      display:flex;flex-direction:column;gap:18px;
+    }
+    .demo-aside .aside-kicker{font-family:"Space Grotesk";font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;opacity:.7}
+    .demo-aside h2{font-family:"Space Grotesk";font-weight:700;font-size:30px;line-height:1.05;letter-spacing:-.5px;margin:0}
+    .demo-aside p{font-size:15px;line-height:1.55;margin:0;color:#4a1808}
+    .demo-aside .aside-icon{width:56px;height:56px;border-radius:15px;overflow:hidden;box-shadow:0 8px 20px -8px rgba(0,0,0,.4)}
+    .demo-aside .aside-icon img{width:100%;height:100%;object-fit:cover}
+    .demo-aside .aside-foot{margin-top:auto;display:flex;flex-direction:column;gap:10px}
+    .email-chip{
+      display:inline-flex;align-items:center;gap:9px;align-self:flex-start;
+      background:rgba(255,255,255,.85);border-radius:12px;padding:10px 14px;
+      font-family:"Space Grotesk";font-weight:700;font-size:15px;color:#3a1104;
+      text-decoration:none;transition:transform .12s ease,background .15s ease;
+    }
+    .email-chip:hover{transform:translateY(-1px);background:#fff}
+    .email-chip svg{width:17px;height:17px;flex:0 0 auto}
+    .aside-loc{font-size:13px;font-weight:600;color:#4a1808;opacity:.8;display:flex;align-items:center;gap:6px}
+    /* playful floating tiles in the brand pane */
+    .aside-deco{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+    .aside-deco span{position:absolute;font-family:"Space Grotesk";font-weight:700;color:rgba(255,255,255,.28);
+      border:2px solid rgba(255,255,255,.32);border-radius:9px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-size:20px}
+    .aside-deco span:nth-child(1){top:14%;right:-8px;transform:rotate(9deg);animation:floaty 6s ease-in-out infinite}
+    .aside-deco span:nth-child(2){top:44%;right:20px;transform:rotate(-7deg);animation:floaty 7.5s ease-in-out infinite .6s}
+    .aside-deco span:nth-child(3){bottom:20%;right:-14px;transform:rotate(5deg);animation:floaty 6.8s ease-in-out infinite .3s}
+    @keyframes floaty{0%,100%{translate:0 0}50%{translate:0 -9px}}
+
+    /* Right form pane */
+    .demo-main{flex:1;min-width:0;display:flex;flex-direction:column;position:relative}
+    .demo-close{
+      position:absolute;top:14px;right:14px;z-index:3;width:38px;height:38px;border-radius:50%;
+      border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;
+      display:flex;align-items:center;justify-content:center;transition:background .15s,transform .1s}
+    .demo-close:hover{background:var(--panel)}
+    .demo-close:active{transform:scale(.92)}
+    .demo-main-scroll{padding:32px 34px;overflow-y:auto}
+    .demo-main h3{font-family:"Space Grotesk";font-weight:700;font-size:23px;letter-spacing:-.3px;margin:0 0 4px}
+    .demo-main .sub{color:var(--muted);font-size:14.5px;margin:0 0 20px}
+
+    .demo-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .field{display:flex;flex-direction:column;gap:6px}
+    .field.full{grid-column:1 / -1}
+    .field label{font-family:"Space Grotesk";font-weight:600;font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted)}
+    .field label .req{color:var(--green);}
+    .field input,.field select,.field textarea{
+      font-family:inherit;font-size:15px;color:var(--ink);background:var(--paper);
+      border:1.5px solid var(--line);border-radius:11px;padding:11px 13px;width:100%;outline:none;
+      transition:border-color .15s ease,box-shadow .15s ease;
+    }
+    .field textarea{resize:vertical;min-height:70px}
+    .field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238A8F98' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px;cursor:pointer}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px color-mix(in srgb,var(--green) 22%,transparent)}
+    .field input::placeholder,.field textarea::placeholder{color:var(--muted);opacity:.7}
+
+    .btn-submit{
+      grid-column:1 / -1;margin-top:6px;position:relative;overflow:hidden;
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      font-family:"Space Grotesk";font-weight:700;font-size:16px;
+      background:var(--green);color:var(--green-ink);border:none;border-radius:13px;
+      padding:15px 20px;cursor:pointer;transition:filter .15s ease,transform .1s ease;
+    }
+    .btn-submit:hover{filter:brightness(.95)}
+    .btn-submit:active{transform:translateY(1px)}
+    .btn-submit[disabled]{cursor:default;opacity:.9}
+    .btn-submit .s-label{display:inline-flex;align-items:center;gap:9px;transition:opacity .2s}
+    .btn-submit .s-spin{position:absolute;width:20px;height:20px;border:2.5px solid rgba(58,17,4,.35);border-top-color:#3a1104;border-radius:50%;opacity:0;animation:spin .7s linear infinite}
+    .btn-submit[data-state="loading"] .s-label{opacity:0}
+    .btn-submit[data-state="loading"] .s-spin{opacity:1}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .form-error{grid-column:1/-1;color:#c0392b;font-size:13.5px;font-weight:600;margin:0;min-height:0}
+    :root.dark .form-error{color:#ff8a80}
+
+    /* Success pane */
+    .demo-success{position:absolute;inset:0;background:var(--surface);display:flex;flex-direction:column;
+      align-items:center;justify-content:center;text-align:center;padding:34px;gap:8px;
+      opacity:0;visibility:hidden;transform:scale(.98);transition:opacity .3s ease,transform .3s ease,visibility 0s linear .3s;z-index:4}
+    .demo-success.show{opacity:1;visibility:visible;transform:none;transition:opacity .35s ease,transform .35s cubic-bezier(.2,.9,.3,1.2)}
+    .success-badge{width:88px;height:88px;border-radius:50%;background:color-mix(in srgb,var(--green) 20%,var(--paper));
+      display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+    .success-badge svg{width:46px;height:46px}
+    .success-badge circle{stroke:var(--green);stroke-width:3;fill:none;stroke-dasharray:170;stroke-dashoffset:170;animation:draw .5s ease forwards}
+    .success-badge path{stroke:var(--green);stroke-width:4;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:48;stroke-dashoffset:48;animation:draw .4s ease .35s forwards}
+    @keyframes draw{to{stroke-dashoffset:0}}
+    .demo-success h3{font-family:"Space Grotesk";font-weight:700;font-size:26px;margin:0}
+    .demo-success p{color:var(--muted);font-size:15px;margin:0;max-width:340px}
+    .demo-success .again{margin-top:14px}
+    .demo-confetti{position:absolute;inset:0;pointer-events:none;z-index:5}
+
+    /* Mobile: bottom sheet */
+    @media(max-width:680px){
+      .demo-overlay{padding:0;align-items:flex-end}
+      .demo-modal{flex-direction:column;width:100%;max-height:94vh;border-radius:24px 24px 0 0;
+        transform:translateY(100%);transition:transform .38s cubic-bezier(.2,.9,.3,1)}
+      .demo-overlay.open .demo-modal{transform:none}
+      .demo-modal::before{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);
+        width:40px;height:4px;border-radius:4px;background:rgba(128,128,128,.4);z-index:6}
+      .demo-aside{flex:none;max-width:none;flex-direction:row;align-items:center;gap:14px;padding:26px 22px 18px}
+      .demo-aside h2{font-size:22px}
+      .demo-aside .aside-blurb{display:none}
+      .demo-aside .aside-foot{margin-top:0;margin-left:auto;align-items:flex-end}
+      .aside-loc{display:none}
+      .aside-deco{display:none}
+      .demo-main-scroll{padding:22px 22px calc(22px + env(safe-area-inset-bottom))}
+      .demo-form{grid-template-columns:1fr}
+      .btn-submit .s-label,.demo-close{}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .demo-overlay,.demo-modal,.demo-success,.aside-deco span{transition-duration:.01ms;animation:none}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site">
+    <div class="wrap site-inner">
+      <a class="brand" href="/">
+        <img class="light-logo" src="/wp-content/themes/superfun-games/images/logo-superfun.svg" alt="Superfun Games">
+        <img class="dark-logo" src="/wp-content/themes/superfun-games/images/logo-superfun-dark.svg" alt="Superfun Games">
+        <span>Superfun&nbsp;Games</span>
+      </a>
+      <div class="head-actions">
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode"></button>
+        <a class="btn btn-primary js-demo" href="mailto:clark@superfun.team?subject=Texas%20Two%20Step%20for%20our%20newsroom">Schedule a Demo</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-top">
+        <div class="appicon"><img src="assets/icon.png" alt="Texas Two Step app icon"></div>
+        <div class="hero-headings">
+          <p class="eyebrow">Game For Sale</p>
+          <h1>Texas Two Step</h1>
+          <p class="tagline">A fast, addictive daily word puzzle. Ready to launch under your brand.</p>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <div class="meta"><div class="k">Category</div><div class="v">Daily Word Game</div></div>
+        <div class="meta"><div class="k">Authoring</div><div class="v">AI Assisted</div></div>
+        <div class="meta"><div class="k">Platform</div><div class="v">Web &amp; Mobile</div></div>
+        <div class="meta"><div class="k">Delivery</div><div class="v">Ready to Ship</div></div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn btn-primary btn-lg js-demo" href="mailto:clark@superfun.team?subject=Texas%20Two%20Step%20for%20our%20newsroom&body=Hi%20Superfun%20team%2C%20we%27d%20love%20to%20talk%20about%20Texas%20Two%20Step%20for%20our%20audience.">Schedule a Demo</a>
+        <a class="btn btn-dark btn-lg" href="assets/flipwords-onesheet.pdf" download>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+          Download One-Sheet
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREENSHOTS ============ -->
+  <section class="block">
+    <div class="wrap">
+      <p class="kicker">Screenshots</p>
+      <div class="shots">
+        <div class="rail" id="rail">
+          <!-- Frame wrappers: phones use class "frame phone", wide desktop shots use "frame desktop". -->
+          <div class="frame phone"><div class="screen"><img src="assets/flipwords-1.webp" alt="Texas Two Step gameplay screenshot 1"></div></div>
+          <div class="frame phone"><div class="screen"><img src="assets/flipwords-2.webp" alt="Texas Two Step gameplay screenshot 2"></div></div>
+          <div class="frame phone"><div class="screen"><img src="assets/flipwords-3.webp" alt="Texas Two Step gameplay screenshot 3"></div></div>
+          <div class="frame desktop"><div class="screen"><img src="assets/flipwords-desktop-1.webp" alt="Texas Two Step embedded in a newsroom article"></div></div>
+          <div class="frame phone"><div class="screen"><img src="assets/flipwords-4.webp" alt="Texas Two Step gameplay screenshot 4"></div></div>
+          <div class="frame phone"><div class="screen"><img src="assets/flipwords-5.webp" alt="Texas Two Step gameplay screenshot 5"></div></div>
+          <div class="frame phone"><div class="screen"><img src="assets/flipwords-6.webp" alt="Texas Two Step gameplay screenshot 6"></div></div>
+          <div class="frame desktop"><div class="screen"><img src="assets/flipwords-desktop-2.webp" alt="Texas Two Step session results on desktop"></div></div>
+          <div class="frame phone"><div class="screen"><img src="assets/flipwords-7.webp" alt="Texas Two Step gameplay screenshot 7"></div></div>
+          <div class="frame phone"><div class="screen"><img src="assets/flipwords-8.webp" alt="Texas Two Step gameplay screenshot 8"></div></div>
+          <div class="frame phone"><div class="screen"><img src="assets/flipwords-9.webp" alt="Texas Two Step gameplay screenshot 9"></div></div>
+        </div>
+        <div class="rail-nav">
+          <button class="arrow" id="prev" aria-label="Previous screenshot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+          <span id="dots"></span>
+          <button class="arrow" id="next" aria-label="Next screenshot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COPY + FEATURES ============ -->
+  <section class="block">
+    <div class="wrap copy-grid">
+      <div>
+        <p class="kicker">About Texas Two Step</p>
+        <p class="lead">Texas Two Step is a <strong>complete, ready-to-play daily word game</strong> your readers will come back for every day. We build it, brand it, and hand it over: your logo, your colors, your domain. No dev team required.</p>
+        <p class="lead" style="color:var(--muted);font-size:17px">Quick to learn, hard to put down, and engineered to build the daily habit that keeps an audience coming back to <em>your</em> site.</p>
+      </div>
+      <div>
+        <p class="kicker">What&rsquo;s included</p>
+        <ul class="features">
+          <li><span class="tick">&#10003;</span><span><span class="ft">Fully whitelabeled</span><br><span class="fd">Your brand, palette, and domain, top to bottom.</span></span></li>
+          <li><span class="tick">&#10003;</span><span><span class="ft">Complete &amp; launch-ready</span><br><span class="fd">A finished game, not a prototype. Ships ready to go.</span></span></li>
+          <li><span class="tick">&#10003;</span><span><span class="ft">Mobile-first &amp; fast</span><br><span class="fd">Feels great on phones, loads in an instant.</span></span></li>
+          <li><span class="tick">&#10003;</span><span><span class="ft">Built for daily return visits</span><br><span class="fd">Streaks and a fresh puzzle every day drive engagement.</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT SUPERFUN GAMES ============ -->
+  <section class="block">
+    <div class="wrap">
+      <p class="kicker">About Superfun Games</p>
+      <p class="lead" style="max-width:760px">Superfun Games is a family game shop in Austin, TX, founded by <strong>Clark and Angie Wimberly</strong>. We make clever, quick games and puzzles that put play ahead of complicated rules, and we build whitelabel games that newsrooms and teams can proudly call their own.</p>
+    </div>
+  </section>
+
+  <!-- ============ COMBINED CTA ============ -->
+  <section class="block">
+    <div class="wrap">
+      <div class="pitch">
+        <h2>Every newsroom needs a game.</h2>
+        <p>Texas Two Step is the fastest way to add one: complete, on-brand, and ready to ship. Let&rsquo;s get it on your site.</p>
+        <div class="cta-row" style="justify-content:center;margin-top:26px">
+          <a class="btn btn-primary btn-lg js-demo" href="mailto:clark@superfun.team?subject=Texas%20Two%20Step%20for%20our%20newsroom">Schedule a Demo</a>
+          <a class="btn btn-dark btn-lg" href="assets/flipwords-onesheet.pdf" download>Download One-Sheet</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site">
+    <div class="wrap foot-inner">
+      <span>&copy; Superfun Games &middot; Austin, TX</span>
+      <span><a href="/">superfun.games</a> &middot; <a class="js-email" data-u="clark" data-d="superfun.team">email us</a></span>
+    </div>
+  </footer>
+
+  <!-- ============ SCHEDULE A DEMO MODAL / SHEET ============ -->
+  <div class="demo-overlay" id="demoOverlay" role="dialog" aria-modal="true" aria-labelledby="demoTitle" hidden>
+    <div class="demo-modal">
+
+      <!-- Brand pane -->
+      <aside class="demo-aside">
+        <div class="aside-deco"><span>F</span><span>W</span><span>!</span></div>
+        <div class="aside-icon"><img src="assets/icon.png" alt="Texas Two Step icon"></div>
+        <div>
+          <p class="aside-kicker">Texas Two Step</p>
+          <h2 id="demoTitle">Let&rsquo;s put a game on your site.</h2>
+        </div>
+        <p class="aside-blurb">Book a quick demo and we&rsquo;ll show you Texas Two Step running in your brand, plus pricing and launch timing. Takes 15 minutes.</p>
+        <div class="aside-foot">
+          <a class="email-chip js-email" data-u="clark" data-d="superfun.team">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            <span class="email-text">prefer email?</span>
+          </a>
+          <span class="aside-loc">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            Austin, TX
+          </span>
+        </div>
+      </aside>
+
+      <!-- Form pane -->
+      <div class="demo-main">
+        <button class="demo-close" id="demoClose" aria-label="Close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+
+        <div class="demo-main-scroll">
+          <h3>Schedule a demo</h3>
+          <p class="sub">Tell us a bit about your newsroom and we&rsquo;ll be in touch within a day.</p>
+
+          <form class="demo-form" id="demoForm" name="texas-two-step-demo" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="texas-two-step-demo">
+            <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
+
+            <div class="field">
+              <label for="f-name">Your name <span class="req">*</span></label>
+              <input id="f-name" name="name" type="text" required autocomplete="name" placeholder="Jane Reporter">
+            </div>
+            <div class="field">
+              <label for="f-email">Work email <span class="req">*</span></label>
+              <input id="f-email" name="email" type="email" required autocomplete="email" placeholder="jane@paper.com">
+            </div>
+            <div class="field full">
+              <label for="f-org">Newsroom / organization <span class="req">*</span></label>
+              <input id="f-org" name="organization" type="text" required placeholder="The Daily Ledger">
+            </div>
+            <div class="field">
+              <label for="f-size">Monthly audience <span class="req">*</span></label>
+              <select id="f-size" name="audience_size" required>
+                <option value="" disabled selected>Choose one</option>
+                <option>Under 50k</option>
+                <option>50k – 500k</option>
+                <option>500k – 5M</option>
+                <option>5M+</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-budget">Budget <span class="req">*</span></label>
+              <select id="f-budget" name="budget" required>
+                <option value="" disabled selected>Choose one</option>
+                <option>Under $5k</option>
+                <option>$5k – $15k</option>
+                <option>$15k – $50k</option>
+                <option>$50k+</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="f-timeline">Timeline</label>
+              <select id="f-timeline" name="timeline">
+                <option value="" disabled selected>When are you hoping to launch?</option>
+                <option>ASAP &mdash; yesterday, ideally</option>
+                <option>This quarter</option>
+                <option>Next few months</option>
+                <option>Just exploring</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="f-msg">Anything else?</label>
+              <textarea id="f-msg" name="message" placeholder="Which games caught your eye, questions, etc."></textarea>
+            </div>
+
+            <p class="form-error" id="demoError" role="alert"></p>
+
+            <button type="submit" class="btn-submit" id="demoSubmit" data-state="idle">
+              <span class="s-label">Request my demo
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+              </span>
+              <span class="s-spin" aria-hidden="true"></span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Success state -->
+        <div class="demo-success" id="demoSuccess" aria-live="polite">
+          <canvas class="demo-confetti" id="demoConfetti"></canvas>
+          <div class="success-badge">
+            <svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="26"/><path d="M17 29l7 7 15-16"/></svg>
+          </div>
+          <h3>You&rsquo;re on the board! &#127881;</h3>
+          <p id="demoSuccessMsg">Demo request received. We&rsquo;ll flip you a reply shortly.</p>
+          <button class="btn btn-ghost again" id="demoAgain">Done</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    /* ---- Dark mode (matches main site's localStorage.theme convention) ---- */
+    (function(){
+      var root=document.documentElement;
+      function apply(dark){
+        root.classList.toggle('dark',dark);
+        var m=document.querySelector('meta[name="theme-color"]');
+        if(m) m.setAttribute('content',dark?'#0B0C0E':'#FFFFFF');
+        var b=document.getElementById('theme-toggle');
+        b.innerHTML = dark
+          ? '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="18" height="18"><path d="M14.438 10.148c.19-.425-.321-.787-.748-.601A5.5 5.5 0 0 1 6.453 2.31c.186-.427-.176-.938-.6-.748a6.501 6.501 0 1 0 8.585 8.586Z"/></svg>'
+          : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="18" height="18"><path d="M8 1a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 8 1ZM10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM12.95 4.11a.75.75 0 1 0-1.06-1.06l-1.062 1.06a.75.75 0 0 0 1.061 1.062l1.06-1.061ZM15 8a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 15 8ZM11.89 12.95a.75.75 0 0 0 1.06-1.06l-1.06-1.062a.75.75 0 0 0-1.062 1.061l1.061 1.06ZM8 12a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 8 12ZM5.172 11.89a.75.75 0 0 0-1.061-1.062L3.05 11.89a.75.75 0 1 0 1.06 1.06l1.06-1.06ZM4 8a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 4 8ZM4.11 5.172A.75.75 0 0 0 5.173 4.11L4.11 3.05a.75.75 0 1 0-1.06 1.06l1.06 1.06Z"/></svg>';
+      }
+      var dark = localStorage.theme==='dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      apply(dark);
+      document.getElementById('theme-toggle').addEventListener('click',function(){
+        dark=!root.classList.contains('dark');
+        localStorage.theme=dark?'dark':'light';
+        apply(dark);
+      });
+    })();
+
+    /* ---- Screenshot carousel: dots + arrows ---- */
+    (function(){
+      var rail=document.getElementById('rail');
+      var slides=Array.prototype.slice.call(rail.children);
+      var dotsWrap=document.getElementById('dots');
+      slides.forEach(function(_,i){
+        var d=document.createElement('button');
+        d.className='dot'+(i===0?' active':'');
+        d.setAttribute('aria-label','Go to screenshot '+(i+1));
+        d.addEventListener('click',function(){slides[i].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});});
+        dotsWrap.appendChild(d);
+      });
+      var dots=Array.prototype.slice.call(dotsWrap.children);
+      function current(){
+        var mid=rail.scrollLeft+rail.clientWidth/2, best=0, bd=Infinity;
+        slides.forEach(function(s,i){
+          var c=s.offsetLeft+s.offsetWidth/2, dd=Math.abs(c-mid);
+          if(dd<bd){bd=dd;best=i;}
+        });
+        return best;
+      }
+      function sync(){var i=current();dots.forEach(function(d,j){d.classList.toggle('active',j===i);});}
+      rail.addEventListener('scroll',function(){window.requestAnimationFrame(sync);});
+      function go(dir){var i=Math.min(slides.length-1,Math.max(0,current()+dir));slides[i].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});}
+      document.getElementById('prev').addEventListener('click',function(){go(-1);});
+      document.getElementById('next').addEventListener('click',function(){go(1);});
+    })();
+
+    /* ---- Bot-safe email: assembled from parts at runtime (never in the HTML source) ---- */
+    (function(){
+      Array.prototype.forEach.call(document.querySelectorAll('.js-email'),function(el){
+        var email=(el.dataset.u||'')+'@'+(el.dataset.d||'');
+        el.setAttribute('href','mailto:'+email+'?subject=Texas%20Two%20Step%20for%20our%20newsroom');
+        var t=el.querySelector('.email-text');
+        if(t){t.textContent=email;} else {el.textContent=email;}
+      });
+    })();
+
+    /* ---- Schedule-a-demo modal / bottom sheet ---- */
+    (function(){
+      var overlay=document.getElementById('demoOverlay');
+      if(!overlay) return;
+      var modal=overlay.querySelector('.demo-modal');
+      var form=document.getElementById('demoForm');
+      var btn=document.getElementById('demoSubmit');
+      var errorEl=document.getElementById('demoError');
+      var success=document.getElementById('demoSuccess');
+      var successMsg=document.getElementById('demoSuccessMsg');
+      var confetti=document.getElementById('demoConfetti');
+      var lastFocus=null, hideTimer=null;
+
+      function focusables(){return overlay.querySelectorAll('button,[href],input,select,textarea');}
+
+      function open(opener){
+        lastFocus=opener||document.activeElement;
+        clearTimeout(hideTimer);
+        overlay.hidden=false;
+        document.body.style.overflow='hidden';
+        requestAnimationFrame(function(){overlay.classList.add('open');});
+        var first=form.querySelector('input,select,textarea');
+        setTimeout(function(){if(first)first.focus();},260);
+      }
+      function close(){
+        overlay.classList.remove('open');
+        document.body.style.overflow='';
+        hideTimer=setTimeout(function(){
+          overlay.hidden=true;
+          // reset for next open
+          success.classList.remove('show');
+          form.reset();
+          btn.dataset.state='idle'; btn.disabled=false; errorEl.textContent='';
+        },340);
+        if(lastFocus&&lastFocus.focus)lastFocus.focus();
+      }
+
+      // Open triggers (keep mailto as no-JS fallback)
+      Array.prototype.forEach.call(document.querySelectorAll('.js-demo'),function(a){
+        a.addEventListener('click',function(e){e.preventDefault();open(a);});
+      });
+      document.getElementById('demoClose').addEventListener('click',close);
+      document.getElementById('demoAgain').addEventListener('click',close);
+      overlay.addEventListener('mousedown',function(e){if(e.target===overlay)close();});
+      document.addEventListener('keydown',function(e){
+        if(overlay.hidden)return;
+        if(e.key==='Escape')close();
+        if(e.key==='Tab'){ // simple focus trap
+          var f=focusables(); if(!f.length)return;
+          var first=f[0], last=f[f.length-1];
+          if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+          else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+        }
+      });
+      // deep link: superfun.games/forsale/texas-two-step/#demo opens the modal
+      if(location.hash==='#demo') open(null);
+
+      /* Netlify AJAX submit -> in-place animated confirmation */
+      form.addEventListener('submit',function(e){
+        e.preventDefault();
+        if(btn.dataset.state==='loading')return;
+        errorEl.textContent='';
+        btn.dataset.state='loading'; btn.disabled=true;
+        var body=new URLSearchParams(new FormData(form)).toString();
+        var t0=Date.now?0:0; var started=performance.now();
+        fetch(form.getAttribute('action')||'/',{
+          method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body
+        }).then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r;})
+          .then(function(){
+            var wait=Math.max(0,650-(performance.now()-started)); // let the spinner breathe
+            setTimeout(showSuccess,wait);
+          })
+          .catch(function(){
+            btn.dataset.state='idle'; btn.disabled=false;
+            errorEl.textContent='That didn’t send — please try again, or email us directly.';
+          });
+      });
+
+      function showSuccess(){
+        var email=(form.querySelector('[name=email]').value||'').trim();
+        if(email) successMsg.textContent='Demo request received. We’ll reply to '+email+' within a day.';
+        success.classList.add('show');
+        launchConfetti(confetti);
+      }
+
+      function launchConfetti(canvas){
+        var box=canvas.parentElement.getBoundingClientRect();
+        canvas.width=box.width; canvas.height=box.height;
+        var ctx=canvas.getContext('2d');
+        var colors=['#f75a38','#F5B301','#1f3a5f','#EFE9DA','#FF6B6B','#7C5CFF'];
+        var parts=[];
+        for(var i=0;i<110;i++){
+          parts.push({x:canvas.width/2,y:canvas.height*0.4,
+            vx:(Math.random()*2-1)*7,vy:(Math.random()*-1-2.5)*2.4,
+            s:4+Math.random()*6,rot:Math.random()*6.28,vr:(Math.random()*2-1)*0.32,
+            color:colors[i%colors.length]});
+        }
+        var start=null,dur=2600;
+        (function frame(t){
+          if(start===null)start=t; var el=t-start;
+          ctx.clearRect(0,0,canvas.width,canvas.height);
+          for(var i=0;i<parts.length;i++){var p=parts[i];
+            p.vy+=0.16; p.x+=p.vx; p.y+=p.vy; p.rot+=p.vr;
+            ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot);
+            ctx.globalAlpha=Math.max(0,1-el/dur); ctx.fillStyle=p.color;
+            ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s*0.62); ctx.restore();
+          }
+          if(el<dur){requestAnimationFrame(frame);} else {ctx.clearRect(0,0,canvas.width,canvas.height);}
+        })(0);
+      }
+
+      // small programmatic hook (open/close + preview the success state)
+      window.SFDemo={open:function(){open(null);},close:close,success:showSuccess};
+    })();
+  </script>
+</body>
+</html>
