@@ -36,7 +36,7 @@
       --panel:#F7F8FA;
       --surface:#FFFFFF;
       --green:#f75a38;
-      --green-ink:#3a1104;
+      --green-ink:#FFFFFF;
       --radius:18px;
       --maxw:1080px;
     }
@@ -48,7 +48,7 @@
       --panel:#131519;
       --surface:#171B21;
       --green:#f75a38;
-      --green-ink:#3a1104;
+      --green-ink:#FFFFFF;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -227,13 +227,13 @@
 
     /* Left brand pane */
     .demo-aside{
-      flex:0 0 42%;max-width:360px;padding:34px 32px;color:#3a1104;position:relative;overflow:hidden;
+      flex:0 0 42%;max-width:360px;padding:34px 32px;color:#FFFFFF;position:relative;overflow:hidden;
       background:linear-gradient(165deg,#f75a38 0%,#e24d2b 60%,#c7401f 100%);
       display:flex;flex-direction:column;gap:18px;
     }
     .demo-aside .aside-kicker{font-family:"Space Grotesk";font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;opacity:.7}
     .demo-aside h2{font-family:"Space Grotesk";font-weight:700;font-size:30px;line-height:1.05;letter-spacing:-.5px;margin:0}
-    .demo-aside p{font-size:15px;line-height:1.55;margin:0;color:#4a1808}
+    .demo-aside p{font-size:15px;line-height:1.55;margin:0;color:rgba(255,255,255,.92)}
     .demo-aside .aside-icon{width:56px;height:56px;border-radius:15px;overflow:hidden;box-shadow:0 8px 20px -8px rgba(0,0,0,.4)}
     .demo-aside .aside-icon img{width:100%;height:100%;object-fit:cover}
     .demo-aside .aside-foot{margin-top:auto;display:flex;flex-direction:column;gap:10px}
@@ -245,7 +245,7 @@
     }
     .email-chip:hover{transform:translateY(-1px);background:#fff}
     .email-chip svg{width:17px;height:17px;flex:0 0 auto}
-    .aside-loc{font-size:13px;font-weight:600;color:#4a1808;opacity:.8;display:flex;align-items:center;gap:6px}
+    .aside-loc{font-size:13px;font-weight:600;color:#FFFFFF;opacity:.85;display:flex;align-items:center;gap:6px}
     /* playful floating tiles in the brand pane */
     .aside-deco{position:absolute;inset:0;pointer-events:none;overflow:hidden}
     .aside-deco span{position:absolute;font-family:"Space Grotesk";font-weight:700;color:rgba(255,255,255,.28);
@@ -293,7 +293,7 @@
     .btn-submit:active{transform:translateY(1px)}
     .btn-submit[disabled]{cursor:default;opacity:.9}
     .btn-submit .s-label{display:inline-flex;align-items:center;gap:9px;transition:opacity .2s}
-    .btn-submit .s-spin{position:absolute;width:20px;height:20px;border:2.5px solid rgba(58,17,4,.35);border-top-color:#3a1104;border-radius:50%;opacity:0;animation:spin .7s linear infinite}
+    .btn-submit .s-spin{position:absolute;width:20px;height:20px;border:2.5px solid rgba(255,255,255,.45);border-top-color:#FFFFFF;border-radius:50%;opacity:0;animation:spin .7s linear infinite}
     .btn-submit[data-state="loading"] .s-label{opacity:0}
     .btn-submit[data-state="loading"] .s-spin{opacity:1}
     @keyframes spin{to{transform:rotate(360deg)}}
