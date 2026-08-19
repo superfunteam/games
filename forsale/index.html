@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Games for Sale | Superfun Games</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FFFFFF">
+
+  <link rel="icon" href="/wp-content/themes/superfun-games/images/logo-superfun.svg">
+
+  <meta name="description" content="Complete, whitelabel daily games you can launch under your own brand. Every newsroom needs a game.">
+  <meta property="og:url" content="https://superfun.games/forsale/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Games for Sale | Superfun Games">
+  <meta property="og:description" content="Complete, whitelabel daily games you can launch under your own brand.">
+  <meta property="og:image" content="/wp-content/themes/superfun-games/images/social.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Games for Sale | Superfun Games">
+  <meta name="twitter:description" content="Complete, whitelabel daily games you can launch under your own brand.">
+  <meta name="twitter:image" content="/wp-content/themes/superfun-games/images/social.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/open-sauce-one?styles=140025,140021,140018" rel="stylesheet">
+
+  <style>
+    :root{
+      --ink:#14161A;--muted:#6B7280;--line:#E7E9ED;--paper:#FFFFFF;--panel:#F7F8FA;--surface:#FFFFFF;--maxw:1120px;
+    }
+    :root.dark{
+      --ink:#F3F4F6;--muted:#9AA1AC;--line:#23262B;--paper:#0B0C0E;--panel:#131519;--surface:#171B21;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:"Open Sauce One","Space Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;line-height:1.55}
+    h1,h2,h3{font-family:"Space Grotesk",sans-serif}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+    /* Header */
+    header.site{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);
+      backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--line)}
+    .site-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;align-items:center;gap:10px;font-family:"Space Grotesk";font-weight:700;font-size:18px}
+    .brand img{width:34px;height:34px}
+    .brand .dark-logo{display:none}
+    :root.dark .brand .light-logo{display:none}
+    :root.dark .brand .dark-logo{display:block}
+    .head-actions{display:flex;align-items:center;gap:12px}
+    .icon-btn{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;
+      border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;opacity:.7}
+    .icon-btn:hover{opacity:1}
+    .head-link{font-family:"Space Grotesk";font-weight:600;font-size:14px;color:var(--muted)}
+    .head-link:hover{color:var(--ink)}
+
+    /* Hero */
+    .hero{padding:66px 0 30px}
+    .hero .eyebrow{font-family:"Space Grotesk";font-weight:600;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+    .hero h1{font-size:clamp(34px,6vw,54px);line-height:1.03;letter-spacing:-1.5px;margin:0 0 14px;font-weight:700}
+    .hero p{font-size:clamp(16px,2.2vw,19px);color:var(--muted);margin:0;max-width:640px}
+
+    /* Cards */
+    .games{padding:26px 0 60px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.grid{grid-template-columns:1fr}}
+    .card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:18px;
+      overflow:hidden;color:inherit;transition:transform .16s ease,box-shadow .22s ease,border-color .2s ease}
+    .card:hover{transform:translateY(-4px);box-shadow:0 24px 46px -26px rgba(0,0,0,.45);
+      border-color:color-mix(in srgb,var(--accent) 55%,var(--line))}
+    .card-shot{height:206px;overflow:hidden;position:relative;
+      background:color-mix(in srgb,var(--accent) 14%,var(--surface));border-bottom:1px solid var(--line)}
+    .card-shot img{width:100%;height:100%;object-fit:cover;object-position:top center}
+    .card-body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:11px;flex:1}
+    .card-head{display:flex;align-items:center;gap:12px}
+    .card-icon{width:48px;height:48px;border-radius:13px;overflow:hidden;flex:0 0 auto;border:1px solid var(--line);
+      box-shadow:0 4px 12px -6px rgba(0,0,0,.35)}
+    .card-icon img{width:100%;height:100%;object-fit:cover}
+    .card h3{font-size:20px;margin:0;letter-spacing:-.3px}
+    .card .pitch{color:var(--muted);font-size:14.5px;line-height:1.5;margin:0}
+    .card .view{margin-top:auto;padding-top:4px;font-family:"Space Grotesk";font-weight:700;font-size:14px;
+      color:var(--accent);display:inline-flex;align-items:center;gap:6px}
+    .card .view svg{width:15px;height:15px;transition:transform .16s ease}
+    .card:hover .view svg{transform:translateX(3px)}
+
+    footer.site{border-top:1px solid var(--line);padding:26px 0;margin-top:8px}
+    .foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;color:var(--muted);font-size:14px}
+    .foot-inner a:hover{color:var(--ink)}
+  </style>
+</head>
+<body>
+
+  <header class="site">
+    <div class="wrap site-inner">
+      <a class="brand" href="/">
+        <img class="light-logo" src="/wp-content/themes/superfun-games/images/logo-superfun.svg" alt="Superfun Games">
+        <img class="dark-logo" src="/wp-content/themes/superfun-games/images/logo-superfun-dark.svg" alt="Superfun Games">
+        <span>Superfun&nbsp;Games</span>
+      </a>
+      <div class="head-actions">
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode"></button>
+        <a class="head-link" href="/">superfun.games</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Whitelabel Games</p>
+      <h1>Games for sale.</h1>
+      <p>Complete, ready-to-launch daily games you can run under your own brand. Your logo, your colors, your domain. Every newsroom needs a game, and here are ours.</p>
+    </div>
+  </section>
+
+  <section class="games">
+    <div class="wrap">
+      <div class="grid">
+
+        <a class="card" href="flipwords/" style="--accent:#00C46A">
+          <div class="card-shot"><img src="flipwords/assets/flipwords-1.webp" alt="FlipWords screenshot"></div>
+          <div class="card-body">
+            <div class="card-head">
+              <div class="card-icon"><img src="flipwords/assets/icon.png" alt="FlipWords icon"></div>
+              <h3>FlipWords</h3>
+            </div>
+            <p class="pitch">Flip the letter tiles to crack the hidden word in six quick tries.</p>
+            <span class="view">View game
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a class="card" href="texas-two-step/" style="--accent:#f75a38">
+          <div class="card-shot"><img src="texas-two-step/assets/two-step-1.webp" alt="Texas Two Step screenshot"></div>
+          <div class="card-body">
+            <div class="card-head">
+              <div class="card-icon"><img src="texas-two-step/assets/icon.png" alt="Texas Two Step icon"></div>
+              <h3>Texas Two Step</h3>
+            </div>
+            <p class="pitch">Match dominoes to the clues in a daily word puzzle with Texas twang.</p>
+            <span class="view">View game
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a class="card" href="links/" style="--accent:#4C9A2A">
+          <div class="card-shot"><img src="links/assets/flipwords-1.webp" alt="Links screenshot"></div>
+          <div class="card-body">
+            <div class="card-head">
+              <div class="card-icon"><img src="links/assets/icon.png" alt="Links icon"></div>
+              <h3>Links</h3>
+            </div>
+            <p class="pitch">Spot the thread connecting each group of clues, one fresh round a day.</p>
+            <span class="view">View game
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+            </span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site">
+    <div class="wrap foot-inner">
+      <span>&copy; Superfun Games &middot; Austin, TX</span>
+      <span><a href="/">superfun.games</a> &middot; <a class="js-email" data-u="clark" data-d="superfun.team">email us</a></span>
+    </div>
+  </footer>
+
+  <script>
+    /* Dark mode (matches the site convention) */
+    (function(){
+      var root=document.documentElement;
+      function apply(dark){
+        root.classList.toggle('dark',dark);
+        var m=document.querySelector('meta[name="theme-color"]'); if(m)m.setAttribute('content',dark?'#0B0C0E':'#FFFFFF');
+        var b=document.getElementById('theme-toggle');
+        b.innerHTML=dark
+          ? '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="18" height="18"><path d="M14.438 10.148c.19-.425-.321-.787-.748-.601A5.5 5.5 0 0 1 6.453 2.31c.186-.427-.176-.938-.6-.748a6.501 6.501 0 1 0 8.585 8.586Z"/></svg>'
+          : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="18" height="18"><path d="M8 1a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 8 1ZM10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM12.95 4.11a.75.75 0 1 0-1.06-1.06l-1.062 1.06a.75.75 0 0 0 1.061 1.062l1.06-1.061ZM15 8a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 15 8ZM11.89 12.95a.75.75 0 0 0 1.06-1.06l-1.06-1.062a.75.75 0 0 0-1.062 1.061l1.061 1.06ZM8 12a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 8 12ZM5.172 11.89a.75.75 0 0 0-1.061-1.062L3.05 11.89a.75.75 0 1 0 1.06 1.06l1.06-1.06ZM4 8a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 4 8ZM4.11 5.172A.75.75 0 0 0 5.173 4.11L4.11 3.05a.75.75 0 1 0-1.06 1.06l1.06 1.06Z"/></svg>';
+      }
+      var dark=localStorage.theme==='dark'||(!localStorage.theme&&window.matchMedia('(prefers-color-scheme: dark)').matches);
+      apply(dark);
+      document.getElementById('theme-toggle').addEventListener('click',function(){
+        dark=!root.classList.contains('dark');localStorage.theme=dark?'dark':'light';apply(dark);
+      });
+    })();
+    /* Bot-safe email */
+    (function(){
+      Array.prototype.forEach.call(document.querySelectorAll('.js-email'),function(el){
+        var email=(el.dataset.u||'')+'@'+(el.dataset.d||'');
+        el.setAttribute('href','mailto:'+email);el.textContent=email;
+      });
+    })();
+  </script>
+</body>
+</html>
