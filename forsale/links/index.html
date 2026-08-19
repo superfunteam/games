@@ -36,7 +36,7 @@
       --panel:#F7F8FA;
       --surface:#FFFFFF;
       --green:#4C9A2A;
-      --green-ink:#0F2E08;
+      --green-ink:#FFFFFF;
       --radius:18px;
       --maxw:1080px;
     }
@@ -48,7 +48,7 @@
       --panel:#131519;
       --surface:#171B21;
       --green:#4C9A2A;
-      --green-ink:#0F2E08;
+      --green-ink:#FFFFFF;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -293,7 +293,7 @@
     .btn-submit:active{transform:translateY(1px)}
     .btn-submit[disabled]{cursor:default;opacity:.9}
     .btn-submit .s-label{display:inline-flex;align-items:center;gap:9px;transition:opacity .2s}
-    .btn-submit .s-spin{position:absolute;width:20px;height:20px;border:2.5px solid rgba(15,46,8,.35);border-top-color:#0F2E08;border-radius:50%;opacity:0;animation:spin .7s linear infinite}
+    .btn-submit .s-spin{position:absolute;width:20px;height:20px;border:2.5px solid rgba(255,255,255,.45);border-top-color:#FFFFFF;border-radius:50%;opacity:0;animation:spin .7s linear infinite}
     .btn-submit[data-state="loading"] .s-label{opacity:0}
     .btn-submit[data-state="loading"] .s-spin{opacity:1}
     @keyframes spin{to{transform:rotate(360deg)}}
