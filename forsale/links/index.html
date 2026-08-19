@@ -74,7 +74,7 @@
     }
     .site-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
     .brand{display:flex;align-items:center;gap:10px;font-family:"Space Grotesk";font-weight:700;font-size:18px}
-    .brand img{width:34px;height:34px}
+    .brand img{width:34px;height:34px} .brand-suffix{font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.4px}
     /* Very narrow screens: drop the wordmark, keep the logo mark so the header stays uncramped */
     @media(max-width:430px){.brand span{display:none}}
     .brand .dark-logo{display:none}
@@ -344,10 +344,10 @@
   <!-- ============ HEADER ============ -->
   <header class="site">
     <div class="wrap site-inner">
-      <a class="brand" href="/">
+      <a class="brand" href="/forsale/">
         <img class="light-logo" src="/wp-content/themes/superfun-games/images/logo-superfun.svg" alt="Superfun Games">
         <img class="dark-logo" src="/wp-content/themes/superfun-games/images/logo-superfun-dark.svg" alt="Superfun Games">
-        <span>Superfun&nbsp;Games</span>
+        <span>Superfun&nbsp;Games <span class="brand-suffix">for&nbsp;News</span></span>
       </a>
       <div class="head-actions">
         <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode"></button>
