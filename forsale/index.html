@@ -141,8 +141,8 @@
     .email-chip{
       display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
       background:color-mix(in srgb,var(--green) 14%,var(--paper));border:1px solid color-mix(in srgb,var(--green) 32%,var(--line));
-      border-radius:14px;padding:16px 20px;
-      font-family:"SF Pro Display";font-weight:700;font-size:17px;color:var(--ink);
+      border-radius:14px;padding:0 20px;min-height:54px;line-height:1;
+      font-family:"SF Pro Display";font-weight:700;font-size:16px;color:var(--ink);
       text-decoration:none;transition:transform .12s ease,background .15s ease;
     }
     .email-chip:hover{transform:translateY(-1px);background:color-mix(in srgb,var(--green) 22%,var(--paper))}
@@ -175,8 +175,8 @@
       grid-column:1 / -1;margin-top:6px;position:relative;overflow:hidden;
       display:inline-flex;align-items:center;justify-content:center;gap:9px;
       font-family:"SF Pro Display";font-weight:700;font-size:16px;
-      background:var(--green);color:var(--green-ink);border:none;border-radius:13px;
-      padding:15px 20px;cursor:pointer;transition:filter .15s ease,transform .1s ease;
+      background:var(--green);color:var(--green-ink);border:1px solid transparent;border-radius:14px;
+      padding:0 20px;min-height:54px;line-height:1;cursor:pointer;transition:filter .15s ease,transform .1s ease;
     }
     .btn-submit:hover{filter:brightness(.95)}
     .btn-submit:active{transform:translateY(1px)}
