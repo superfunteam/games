@@ -290,10 +290,8 @@ POST_CSS = """    .post{padding:56px 0 20px}
       text-transform:uppercase;color:var(--muted);margin:0 0 12px}
     .post h1{font-size:clamp(32px,5vw,50px);line-height:1.06;letter-spacing:-1.4px;margin:0 0 14px;font-weight:700}
     .post-meta{color:var(--muted);font-size:15px;margin:0}
-    .post-ident{display:flex;align-items:center;gap:14px;margin-top:16px}
-    .post-cover{flex:0 0 auto;width:130px;aspect-ratio:4/3;border-radius:10px;overflow:hidden}
+    .post-cover{margin:26px 0 6px;border-radius:18px;overflow:hidden;aspect-ratio:4/3;max-width:520px}
     .post-cover svg{width:100%;height:100%;display:block}
-    .post-ident .post-meta{margin:0}
     .post-body{max-width:760px;padding:8px 0 40px;font-size:18px;line-height:1.65}
     .post-body h2{font-size:clamp(23px,2.6vw,29px);letter-spacing:-.5px;margin:44px 0 12px}
     .post-body h3{font-size:20px;margin:32px 0 8px}
@@ -524,11 +522,9 @@ def build():
     <div class="wrap post-head">
       <p class="eyebrow"><a href="/forsale/blog/">Blog</a></p>
       <h1>{html.escape(p['title'])}</h1>
-      <div class="post-ident">
-        <div class="post-cover">{cover_svg(p['slug'], 20, 15)}</div>
-        <p class="post-meta">{pretty(p['date'])}</p>
-      </div>
+      <p class="post-meta">{pretty(p['date'])}</p>
     </div>
+    <div class="wrap post-head"><div class="post-cover">{cover_svg(p['slug'])}</div></div>
     <div class="wrap post-body">
       {render_body(p['body'])}
     </div>
@@ -588,8 +584,10 @@ def build():
       </div>
       <div class="j-grid">
         <a class="j-feature" href="/forsale/blog/{latest["slug"]}/">
-          <span class="j-thumb">{cover_svg(latest["slug"], 20, 15)}</span>
-          <span class="j-date">{pretty(latest["date"])}</span>
+          <span class="j-ident">
+            <span class="j-thumb">{cover_svg(latest["slug"], 20, 15)}</span>
+            <span class="j-date">{pretty(latest["date"])}</span>
+          </span>
           <h3>{html.escape(latest["title"])}</h3>
           <p>{html.escape(latest["excerpt"])}</p>
           <span class="j-more">Read the post
