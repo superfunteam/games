@@ -570,64 +570,16 @@ def build():
     s = home.read_text()
     recent = posts[1:5] if len(posts) > 1 else []
     L = latest
-
-    # ---- OPTION 1: editorial split -----------------------------------------
-    a_rest = "".join(
-      f'''          <a class="a-item" href="/forsale/blog/{r["slug"]}/">
-            <span class="j-date">{pretty(r["date"])}</span>
-            <span class="a-title">{html.escape(r["title"])}</span>
-          </a>\n''' for r in recent)
-    optA = f'''  <section class="journal jA">
-    <div class="wrap">
-      <p class="j-opt">Option 1 &middot; Editorial split</p>
-      <div class="j-head"><h2>From the journal</h2><a class="j-all" href="/forsale/blog/">All posts</a></div>
-      <a class="a-feature" href="/forsale/blog/{L["slug"]}/">
-        <span class="a-cover">{cover_svg(L["slug"], 24, 18)}</span>
-        <span class="a-copy">
-          <span class="j-date">{pretty(L["date"])}</span>
-          <h3>{html.escape(L["title"])}</h3>
-          <p>{html.escape(L["excerpt"])}</p>
-          <span class="j-more">Read the post
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
-              stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
-        </span>
-      </a>
-      <div class="a-rest">
-{a_rest}      </div>
-    </div>
-  </section>'''
-
-    # ---- OPTION 2: equal card grid -----------------------------------------
-    b_cards = "".join(
-      f'''        <a class="b-card" href="/forsale/blog/{r["slug"]}/">
-          <span class="b-cover">{cover_svg(r["slug"], 20, 15)}</span>
-          {'<span class="b-tag">Latest</span>' if i == 0 else ''}
-          <span class="j-date">{pretty(r["date"])}</span>
-          <span class="b-title">{html.escape(r["title"])}</span>
-        </a>\n''' for i, r in enumerate(posts[:4]))
-    optB = f'''  <section class="journal jB">
-    <div class="wrap">
-      <p class="j-opt">Option 2 &middot; Equal card grid</p>
-      <div class="j-head"><h2>From the journal</h2><a class="j-all" href="/forsale/blog/">All posts</a></div>
-      <div class="b-grid">
-{b_cards}      </div>
-    </div>
-  </section>'''
-
-    # ---- OPTION 3: type-forward index --------------------------------------
-    c_rows = "".join(
+    rows = "".join(
       f'''          <a class="c-row" href="/forsale/blog/{r["slug"]}/">
             <span class="c-num">{i+1:02d}</span>
             <span class="c-copy"><span class="c-title">{html.escape(r["title"])}</span>
               <span class="j-date">{pretty(r["date"])}</span></span>
-          </a>\n''' for i, r in enumerate(posts[:4]))
-    optC = f'''  <section class="journal jC">
+          </a>\n''' for i, r in enumerate(recent))
+    block = f'''<!-- BLOG:LATEST -->
+  <section class="journal jC">
     <div class="wrap">
-      <p class="j-opt">Option 3 &middot; Type-forward index</p>
       <div class="c-grid">
-        <div class="c-left">
-          <div class="j-head"><h2>From the journal</h2></div>
-{c_rows}        </div>
         <a class="c-feature" href="/forsale/blog/{L["slug"]}/">
           <span class="c-cover">{cover_svg(L["slug"], 20, 15)}</span>
           <span class="c-kicker">Latest post</span>
@@ -637,11 +589,13 @@ def build():
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
               stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
         </a>
+        <div class="c-left">
+          <div class="j-head"><h2>From the journal</h2><a class="j-all" href="/forsale/blog/">All posts</a></div>
+{rows}        </div>
       </div>
     </div>
-  </section>'''
-
-    block = "<!-- BLOG:LATEST -->\n" + optA + "\n" + optB + "\n" + optC + "\n  <!-- /BLOG:LATEST -->"
+  </section>
+  <!-- /BLOG:LATEST -->'''
     if "<!-- BLOG:LATEST -->" in s:
         s = re.sub(r'<!-- BLOG:LATEST -->.*?<!-- /BLOG:LATEST -->', block, s, flags=re.S)
         home.write_text(s)

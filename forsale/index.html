@@ -125,11 +125,9 @@
     .card-device{background:var(--accent);overflow:hidden;aspect-ratio:2400/2520}
     .card-device img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
 
-    /* journal (three layout options) */
-    .journal{padding:56px 0 10px}
-    .j-opt{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;font-weight:700;color:#fff;
-      background:var(--ink);display:inline-block;padding:5px 10px;border-radius:6px;margin:0 0 18px}
-    .j-head{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0 0 20px}
+    /* journal */
+    .journal{padding:70px 0 10px}
+    .j-head{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0 0 8px}
     .j-head h2{font-family:"SF Pro Display";font-weight:600;font-size:13px;letter-spacing:2px;
       text-transform:uppercase;color:var(--muted);margin:0}
     .j-all{font-weight:700;font-size:15px;color:var(--muted)}
@@ -139,50 +137,25 @@
     .j-more{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:15px;color:var(--ink)}
     .j-more svg{width:16px;height:16px;transition:transform .16s ease}
     a:hover .j-more svg{transform:translateX(3px)}
-
-    /* Option 1 - editorial split */
-    .jA .a-feature{display:grid;grid-template-columns:400px 1fr;gap:38px;align-items:center}
-    .jA .a-cover{aspect-ratio:4/3;border-radius:18px;overflow:hidden}
-    .jA .a-cover svg{width:100%;height:100%;display:block}
-    .jA .a-copy h3{font-size:clamp(24px,3.1vw,36px);letter-spacing:-.7px;line-height:1.13;margin:10px 0 10px}
-    .jA .a-copy p{color:var(--muted);font-size:17.5px;margin:0 0 16px;max-width:52ch}
-    .jA .a-feature:hover h3{color:var(--muted)}
-    .jA .a-rest{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:36px;
-      border-top:1px solid var(--line);padding-top:26px}
-    .jA .a-title{display:block;font-weight:600;font-size:17px;line-height:1.3;margin-top:6px}
-    .jA .a-item:hover .a-title{color:var(--muted)}
-    @media(max-width:860px){.jA .a-feature{grid-template-columns:1fr;gap:20px}
-      .jA .a-cover{max-width:420px}.jA .a-rest{grid-template-columns:1fr;gap:18px}}
-
-    /* Option 2 - equal card grid */
-    .jB .b-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-    .jB .b-card{position:relative;display:block}
-    .jB .b-cover{display:block;aspect-ratio:4/3;border-radius:14px;overflow:hidden;margin-bottom:12px}
-    .jB .b-cover svg{width:100%;height:100%;display:block}
-    .jB .b-tag{position:absolute;top:10px;left:10px;background:var(--ink);color:#fff;font-size:10.5px;
-      font-weight:700;letter-spacing:1.4px;text-transform:uppercase;padding:4px 8px;border-radius:5px}
-    .jB .b-title{display:block;font-weight:600;font-size:17.5px;line-height:1.28;margin-top:6px}
-    .jB .b-card:hover .b-title{color:var(--muted)}
-    @media(max-width:900px){.jB .b-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:560px){.jB .b-grid{grid-template-columns:1fr}}
-
-    /* Option 3 - type-forward index */
-    .jC .c-grid{display:grid;grid-template-columns:1fr 360px;gap:52px;align-items:start}
-    .jC .c-row{display:flex;gap:18px;align-items:baseline;padding:18px 0;border-top:1px solid var(--line)}
-    .jC .c-row:first-of-type{border-top:0}
-    .jC .c-num{font-size:13px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums;flex:0 0 auto}
-    .jC .c-copy{min-width:0}
-    .jC .c-title{display:block;font-size:clamp(19px,2.2vw,25px);font-weight:600;letter-spacing:-.4px;
-      line-height:1.2;margin-bottom:5px}
-    .jC .c-row:hover .c-title{color:var(--muted)}
-    .jC .c-feature{display:block;background:var(--strip);border-radius:18px;padding:20px}
-    .jC .c-cover{display:block;aspect-ratio:4/3;border-radius:12px;overflow:hidden;margin-bottom:14px}
-    .jC .c-cover svg{width:100%;height:100%;display:block}
-    .jC .c-kicker{display:block;font-size:11.5px;letter-spacing:1.6px;text-transform:uppercase;
+    .c-grid{display:grid;grid-template-columns:360px 1fr;gap:52px;align-items:start}
+    .c-feature{display:block;background:var(--strip);border-radius:18px;padding:20px}
+    .c-feature:hover .c-ftitle{color:var(--muted)}
+    .c-cover{display:block;aspect-ratio:4/3;border-radius:12px;overflow:hidden;margin-bottom:14px}
+    .c-cover svg{width:100%;height:100%;display:block}
+    .c-kicker{display:block;font-size:11.5px;letter-spacing:1.6px;text-transform:uppercase;
       font-weight:700;color:var(--muted)}
-    .jC .c-ftitle{display:block;font-size:20px;font-weight:700;letter-spacing:-.4px;line-height:1.2;margin:6px 0 8px}
-    .jC .c-fex{display:block;color:var(--muted);font-size:15px;line-height:1.45;margin-bottom:14px}
-    @media(max-width:860px){.jC .c-grid{grid-template-columns:1fr;gap:30px}}
+    .c-ftitle{display:block;font-size:20px;font-weight:700;letter-spacing:-.4px;line-height:1.2;margin:6px 0 8px}
+    .c-fex{display:block;color:var(--muted);font-size:15px;line-height:1.45;margin-bottom:14px}
+    .c-row{display:flex;gap:18px;align-items:baseline;padding:18px 0;border-top:1px solid var(--line)}
+    .c-num{font-size:13px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums;flex:0 0 auto}
+    .c-copy{min-width:0}
+    .c-title{display:block;font-size:clamp(19px,2.2vw,25px);font-weight:600;letter-spacing:-.4px;
+      line-height:1.2;margin-bottom:5px}
+    .c-row:hover .c-title{color:var(--muted)}
+    @media(max-width:860px){
+      .c-grid{grid-template-columns:1fr;gap:30px}
+      .c-feature{max-width:420px}
+    }
     .cta{padding:80px 0 92px}
     .cta .wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap}
     .cta-copy{text-align:left;flex:1;min-width:0}
@@ -386,81 +359,9 @@
   </section>
 
 <!-- BLOG:LATEST -->
-  <section class="journal jA">
-    <div class="wrap">
-      <p class="j-opt">Option 1 &middot; Editorial split</p>
-      <div class="j-head"><h2>From the journal</h2><a class="j-all" href="/forsale/blog/">All posts</a></div>
-      <a class="a-feature" href="/forsale/blog/going-viral/">
-        <span class="a-cover"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 18" preserveAspectRatio="xMidYMid slice" shape-rendering="crispEdges" role="img" aria-label="Abstract pixel artwork"><rect width="24" height="18" fill="#DF2274"/><rect x="6" y="0" width="1" height="1" fill="#62DFA5"/><rect x="5" y="1" width="1" height="1" fill="#62DFA5"/><rect x="12" y="1" width="1" height="1" fill="#62DFA5"/><rect x="7" y="2" width="1" height="1" fill="#62DFA5"/><rect x="13" y="2" width="1" height="1" fill="#F0AEA5"/><rect x="15" y="2" width="1" height="1" fill="#F0AEA5"/><rect x="17" y="2" width="1" height="1" fill="#62DFA5"/><rect x="10" y="3" width="1" height="1" fill="#62DFA5"/><rect x="14" y="3" width="1" height="1" fill="#62DFA5"/><rect x="16" y="3" width="1" height="1" fill="#F0AEA5"/><rect x="18" y="3" width="1" height="1" fill="#62DFA5"/><rect x="19" y="3" width="1" height="1" fill="#62DFA5"/><rect x="5" y="4" width="1" height="1" fill="#62DFA5"/><rect x="8" y="4" width="1" height="1" fill="#F0AEA5"/><rect x="10" y="4" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="4" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="4" width="1" height="1" fill="#FFFFFF"/><rect x="13" y="4" width="1" height="1" fill="#F0AEA5"/><rect x="17" y="4" width="1" height="1" fill="#F0AEA5"/><rect x="19" y="4" width="1" height="1" fill="#62DFA5"/><rect x="7" y="5" width="1" height="1" fill="#F0AEA5"/><rect x="9" y="5" width="1" height="1" fill="#F0AEA5"/><rect x="12" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="13" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="16" y="5" width="1" height="1" fill="#F0AEA5"/><rect x="17" y="5" width="1" height="1" fill="#62DFA5"/><rect x="3" y="6" width="1" height="1" fill="#62DFA5"/><rect x="6" y="6" width="1" height="1" fill="#62DFA5"/><rect x="8" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="13" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="13" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="14" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="16" y="7" width="1" height="1" fill="#F0AEA5"/><rect x="3" y="8" width="1" height="1" fill="#62DFA5"/><rect x="4" y="8" width="1" height="1" fill="#62DFA5"/><rect x="7" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="8" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="13" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="14" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="17" y="8" width="1" height="1" fill="#F0AEA5"/><rect x="4" y="9" width="1" height="1" fill="#62DFA5"/><rect x="5" y="9" width="1" height="1" fill="#62DFA5"/><rect x="7" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="8" y="9" width="1" height="1" fill="#F0AEA5"/><rect x="10" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="13" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="14" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="15" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="16" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="19" y="9" width="1" height="1" fill="#62DFA5"/><rect x="3" y="10" width="1" height="1" fill="#62DFA5"/><rect x="10" y="10" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="10" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="10" width="1" height="1" fill="#FFFFFF"/><rect x="13" y="10" width="1" height="1" fill="#FFFFFF"/><rect x="14" y="10" width="1" height="1" fill="#F0AEA5"/><rect x="16" y="10" width="1" height="1" fill="#F0AEA5"/><rect x="7" y="11" width="1" height="1" fill="#F0AEA5"/><rect x="9" y="11" width="1" height="1" fill="#F0AEA5"/><rect x="10" y="11" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="11" width="1" height="1" fill="#FFFFFF"/><rect x="13" y="11" width="1" height="1" fill="#FFFFFF"/><rect x="14" y="11" width="1" height="1" fill="#FFFFFF"/><rect x="15" y="11" width="1" height="1" fill="#FFFFFF"/><rect x="16" y="11" width="1" height="1" fill="#62DFA5"/><rect x="18" y="11" width="1" height="1" fill="#F0AEA5"/><rect x="21" y="11" width="1" height="1" fill="#62DFA5"/><rect x="5" y="12" width="1" height="1" fill="#62DFA5"/><rect x="10" y="12" width="1" height="1" fill="#F0AEA5"/><rect x="11" y="12" width="1" height="1" fill="#FFFFFF"/><rect x="14" y="12" width="1" height="1" fill="#FFFFFF"/><rect x="16" y="12" width="1" height="1" fill="#62DFA5"/><rect x="17" y="12" width="1" height="1" fill="#F0AEA5"/><rect x="19" y="12" width="1" height="1" fill="#62DFA5"/><rect x="11" y="13" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="13" width="1" height="1" fill="#F0AEA5"/><rect x="14" y="13" width="1" height="1" fill="#62DFA5"/><rect x="15" y="13" width="1" height="1" fill="#F0AEA5"/><rect x="6" y="14" width="1" height="1" fill="#62DFA5"/><rect x="11" y="14" width="1" height="1" fill="#F0AEA5"/><rect x="13" y="14" width="1" height="1" fill="#62DFA5"/><rect x="14" y="14" width="1" height="1" fill="#F0AEA5"/><rect x="15" y="14" width="1" height="1" fill="#F0AEA5"/><rect x="4" y="15" width="1" height="1" fill="#62DFA5"/><rect x="6" y="15" width="1" height="1" fill="#62DFA5"/><rect x="12" y="15" width="1" height="1" fill="#F0AEA5"/><rect x="17" y="15" width="1" height="1" fill="#62DFA5"/><rect x="14" y="17" width="1" height="1" fill="#62DFA5"/><rect x="15" y="17" width="1" height="1" fill="#62DFA5"/></svg></span>
-        <span class="a-copy">
-          <span class="j-date">August 25, 2026</span>
-          <h3>Going viral: what makes a daily game shareable?</h3>
-          <p>Five things every daily game needs if you want players to post about it on their own.</p>
-          <span class="j-more">Read the post
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
-              stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
-        </span>
-      </a>
-      <div class="a-rest">
-          <a class="a-item" href="/forsale/blog/superfun-games-for-news/">
-            <span class="j-date">July 22, 2026</span>
-            <span class="a-title">Introducing Superfun Games for News</span>
-          </a>
-          <a class="a-item" href="/forsale/blog/meet-superfun/">
-            <span class="j-date">June 18, 2026</span>
-            <span class="a-title">Meet Superfun</span>
-          </a>
-      </div>
-    </div>
-  </section>
-  <section class="journal jB">
-    <div class="wrap">
-      <p class="j-opt">Option 2 &middot; Equal card grid</p>
-      <div class="j-head"><h2>From the journal</h2><a class="j-all" href="/forsale/blog/">All posts</a></div>
-      <div class="b-grid">
-        <a class="b-card" href="/forsale/blog/going-viral/">
-          <span class="b-cover"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 15" preserveAspectRatio="xMidYMid slice" shape-rendering="crispEdges" role="img" aria-label="Abstract pixel artwork"><rect width="20" height="15" fill="#DF2274"/><rect x="6" y="0" width="1" height="1" fill="#62DFA5"/><rect x="7" y="0" width="1" height="1" fill="#62DFA5"/><rect x="9" y="1" width="1" height="1" fill="#F0AEA5"/><rect x="5" y="2" width="1" height="1" fill="#62DFA5"/><rect x="8" y="2" width="1" height="1" fill="#F0AEA5"/><rect x="9" y="2" width="1" height="1" fill="#62DFA5"/><rect x="12" y="2" width="1" height="1" fill="#F0AEA5"/><rect x="3" y="3" width="1" height="1" fill="#62DFA5"/><rect x="6" y="3" width="1" height="1" fill="#62DFA5"/><rect x="8" y="3" width="1" height="1" fill="#62DFA5"/><rect x="9" y="3" width="1" height="1" fill="#62DFA5"/><rect x="17" y="3" width="1" height="1" fill="#62DFA5"/><rect x="5" y="4" width="1" height="1" fill="#F0AEA5"/><rect x="7" y="4" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="4" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="4" width="1" height="1" fill="#FFFFFF"/><rect x="13" y="4" width="1" height="1" fill="#62DFA5"/><rect x="14" y="4" width="1" height="1" fill="#62DFA5"/><rect x="16" y="4" width="1" height="1" fill="#62DFA5"/><rect x="2" y="5" width="1" height="1" fill="#62DFA5"/><rect x="4" y="5" width="1" height="1" fill="#F0AEA5"/><rect x="7" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="8" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="14" y="5" width="1" height="1" fill="#62DFA5"/><rect x="1" y="6" width="1" height="1" fill="#62DFA5"/><rect x="3" y="6" width="1" height="1" fill="#62DFA5"/><rect x="7" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="8" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="13" y="6" width="1" height="1" fill="#F0AEA5"/><rect x="14" y="6" width="1" height="1" fill="#F0AEA5"/><rect x="16" y="6" width="1" height="1" fill="#62DFA5"/><rect x="5" y="7" width="1" height="1" fill="#62DFA5"/><rect x="7" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="8" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="13" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="6" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="7" y="8" width="1" height="1" fill="#F0AEA5"/><rect x="10" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="14" y="8" width="1" height="1" fill="#F0AEA5"/><rect x="16" y="8" width="1" height="1" fill="#62DFA5"/><rect x="3" y="9" width="1" height="1" fill="#62DFA5"/><rect x="4" y="9" width="1" height="1" fill="#62DFA5"/><rect x="5" y="9" width="1" height="1" fill="#F0AEA5"/><rect x="6" y="9" width="1" height="1" fill="#F0AEA5"/><rect x="9" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="9" width="1" height="1" fill="#F0AEA5"/><rect x="7" y="10" width="1" height="1" fill="#F0AEA5"/><rect x="8" y="10" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="10" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="10" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="10" width="1" height="1" fill="#FFFFFF"/><rect x="3" y="11" width="1" height="1" fill="#62DFA5"/><rect x="6" y="11" width="1" height="1" fill="#62DFA5"/><rect x="7" y="11" width="1" height="1" fill="#F0AEA5"/><rect x="8" y="11" width="1" height="1" fill="#F0AEA5"/><rect x="9" y="11" width="1" height="1" fill="#F0AEA5"/><rect x="10" y="11" width="1" height="1" fill="#F0AEA5"/><rect x="10" y="13" width="1" height="1" fill="#F0AEA5"/><rect x="8" y="14" width="1" height="1" fill="#62DFA5"/></svg></span>
-          <span class="b-tag">Latest</span>
-          <span class="j-date">August 25, 2026</span>
-          <span class="b-title">Going viral: what makes a daily game shareable?</span>
-        </a>
-        <a class="b-card" href="/forsale/blog/superfun-games-for-news/">
-          <span class="b-cover"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 15" preserveAspectRatio="xMidYMid slice" shape-rendering="crispEdges" role="img" aria-label="Abstract pixel artwork"><rect width="20" height="15" fill="#30D18E"/><rect x="12" y="1" width="1" height="1" fill="#70DEE0"/><rect x="13" y="1" width="1" height="1" fill="#70DEE0"/><rect x="8" y="2" width="1" height="1" fill="#A9E8E9"/><rect x="9" y="2" width="1" height="1" fill="#A9E8E9"/><rect x="11" y="2" width="1" height="1" fill="#A9E8E9"/><rect x="13" y="2" width="1" height="1" fill="#A9E8E9"/><rect x="17" y="2" width="1" height="1" fill="#70DEE0"/><rect x="4" y="3" width="1" height="1" fill="#70DEE0"/><rect x="5" y="3" width="1" height="1" fill="#A9E8E9"/><rect x="11" y="3" width="1" height="1" fill="#70DEE0"/><rect x="12" y="3" width="1" height="1" fill="#A9E8E9"/><rect x="2" y="4" width="1" height="1" fill="#70DEE0"/><rect x="5" y="4" width="1" height="1" fill="#70DEE0"/><rect x="8" y="4" width="1" height="1" fill="#A9E8E9"/><rect x="10" y="4" width="1" height="1" fill="#A9E8E9"/><rect x="11" y="4" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="4" width="1" height="1" fill="#FFFFFF"/><rect x="18" y="4" width="1" height="1" fill="#70DEE0"/><rect x="8" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="13" y="5" width="1" height="1" fill="#70DEE0"/><rect x="14" y="5" width="1" height="1" fill="#70DEE0"/><rect x="2" y="6" width="1" height="1" fill="#70DEE0"/><rect x="5" y="6" width="1" height="1" fill="#A9E8E9"/><rect x="8" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="13" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="6" y="7" width="1" height="1" fill="#A9E8E9"/><rect x="7" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="8" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="15" y="7" width="1" height="1" fill="#70DEE0"/><rect x="6" y="8" width="1" height="1" fill="#A9E8E9"/><rect x="8" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="13" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="17" y="8" width="1" height="1" fill="#70DEE0"/><rect x="5" y="9" width="1" height="1" fill="#A9E8E9"/><rect x="8" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="15" y="9" width="1" height="1" fill="#70DEE0"/><rect x="9" y="10" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="10" width="1" height="1" fill="#FFFFFF"/><rect x="13" y="10" width="1" height="1" fill="#A9E8E9"/><rect x="14" y="10" width="1" height="1" fill="#A9E8E9"/><rect x="8" y="11" width="1" height="1" fill="#A9E8E9"/><rect x="9" y="11" width="1" height="1" fill="#A9E8E9"/><rect x="11" y="11" width="1" height="1" fill="#A9E8E9"/><rect x="4" y="12" width="1" height="1" fill="#70DEE0"/><rect x="10" y="12" width="1" height="1" fill="#A9E8E9"/><rect x="11" y="12" width="1" height="1" fill="#A9E8E9"/><rect x="17" y="12" width="1" height="1" fill="#70DEE0"/><rect x="13" y="13" width="1" height="1" fill="#70DEE0"/><rect x="10" y="14" width="1" height="1" fill="#70DEE0"/></svg></span>
-          
-          <span class="j-date">July 22, 2026</span>
-          <span class="b-title">Introducing Superfun Games for News</span>
-        </a>
-        <a class="b-card" href="/forsale/blog/meet-superfun/">
-          <span class="b-cover"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 15" preserveAspectRatio="xMidYMid slice" shape-rendering="crispEdges" role="img" aria-label="Abstract pixel artwork"><rect width="20" height="15" fill="#1A7BE6"/><rect x="14" y="0" width="1" height="1" fill="#E1A079"/><rect x="7" y="1" width="1" height="1" fill="#E1A079"/><rect x="10" y="1" width="1" height="1" fill="#A697F1"/><rect x="8" y="2" width="1" height="1" fill="#A697F1"/><rect x="13" y="2" width="1" height="1" fill="#A697F1"/><rect x="15" y="2" width="1" height="1" fill="#E1A079"/><rect x="6" y="3" width="1" height="1" fill="#E1A079"/><rect x="7" y="3" width="1" height="1" fill="#A697F1"/><rect x="9" y="3" width="1" height="1" fill="#E1A079"/><rect x="10" y="3" width="1" height="1" fill="#A697F1"/><rect x="11" y="3" width="1" height="1" fill="#A697F1"/><rect x="15" y="3" width="1" height="1" fill="#E1A079"/><rect x="12" y="4" width="1" height="1" fill="#A697F1"/><rect x="13" y="4" width="1" height="1" fill="#E1A079"/><rect x="15" y="4" width="1" height="1" fill="#E1A079"/><rect x="5" y="5" width="1" height="1" fill="#E1A079"/><rect x="8" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="4" y="6" width="1" height="1" fill="#E1A079"/><rect x="6" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="7" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="13" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="14" y="6" width="1" height="1" fill="#A697F1"/><rect x="17" y="6" width="1" height="1" fill="#E1A079"/><rect x="5" y="7" width="1" height="1" fill="#A697F1"/><rect x="6" y="7" width="1" height="1" fill="#A697F1"/><rect x="7" y="7" width="1" height="1" fill="#A697F1"/><rect x="9" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="7" width="1" height="1" fill="#A697F1"/><rect x="13" y="7" width="1" height="1" fill="#A697F1"/><rect x="14" y="7" width="1" height="1" fill="#A697F1"/><rect x="6" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="7" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="8" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="8" width="1" height="1" fill="#A697F1"/><rect x="14" y="8" width="1" height="1" fill="#A697F1"/><rect x="4" y="9" width="1" height="1" fill="#E1A079"/><rect x="5" y="9" width="1" height="1" fill="#A697F1"/><rect x="6" y="9" width="1" height="1" fill="#A697F1"/><rect x="7" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="8" y="9" width="1" height="1" fill="#A697F1"/><rect x="9" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="16" y="9" width="1" height="1" fill="#E1A079"/><rect x="2" y="10" width="1" height="1" fill="#E1A079"/><rect x="4" y="10" width="1" height="1" fill="#E1A079"/><rect x="6" y="10" width="1" height="1" fill="#A697F1"/><rect x="7" y="10" width="1" height="1" fill="#A697F1"/><rect x="9" y="10" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="10" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="10" width="1" height="1" fill="#FFFFFF"/><rect x="14" y="10" width="1" height="1" fill="#E1A079"/><rect x="16" y="10" width="1" height="1" fill="#E1A079"/><rect x="2" y="11" width="1" height="1" fill="#E1A079"/><rect x="6" y="11" width="1" height="1" fill="#A697F1"/><rect x="7" y="11" width="1" height="1" fill="#E1A079"/><rect x="11" y="11" width="1" height="1" fill="#E1A079"/><rect x="12" y="11" width="1" height="1" fill="#E1A079"/><rect x="13" y="11" width="1" height="1" fill="#A697F1"/><rect x="14" y="11" width="1" height="1" fill="#E1A079"/><rect x="8" y="12" width="1" height="1" fill="#A697F1"/><rect x="9" y="12" width="1" height="1" fill="#A697F1"/><rect x="10" y="12" width="1" height="1" fill="#A697F1"/><rect x="15" y="12" width="1" height="1" fill="#E1A079"/><rect x="8" y="14" width="1" height="1" fill="#E1A079"/><rect x="16" y="14" width="1" height="1" fill="#E1A079"/></svg></span>
-          
-          <span class="j-date">June 18, 2026</span>
-          <span class="b-title">Meet Superfun</span>
-        </a>
-      </div>
-    </div>
-  </section>
   <section class="journal jC">
     <div class="wrap">
-      <p class="j-opt">Option 3 &middot; Type-forward index</p>
       <div class="c-grid">
-        <div class="c-left">
-          <div class="j-head"><h2>From the journal</h2></div>
-          <a class="c-row" href="/forsale/blog/going-viral/">
-            <span class="c-num">01</span>
-            <span class="c-copy"><span class="c-title">Going viral: what makes a daily game shareable?</span>
-              <span class="j-date">August 25, 2026</span></span>
-          </a>
-          <a class="c-row" href="/forsale/blog/superfun-games-for-news/">
-            <span class="c-num">02</span>
-            <span class="c-copy"><span class="c-title">Introducing Superfun Games for News</span>
-              <span class="j-date">July 22, 2026</span></span>
-          </a>
-          <a class="c-row" href="/forsale/blog/meet-superfun/">
-            <span class="c-num">03</span>
-            <span class="c-copy"><span class="c-title">Meet Superfun</span>
-              <span class="j-date">June 18, 2026</span></span>
-          </a>
-        </div>
         <a class="c-feature" href="/forsale/blog/going-viral/">
           <span class="c-cover"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 15" preserveAspectRatio="xMidYMid slice" shape-rendering="crispEdges" role="img" aria-label="Abstract pixel artwork"><rect width="20" height="15" fill="#DF2274"/><rect x="6" y="0" width="1" height="1" fill="#62DFA5"/><rect x="7" y="0" width="1" height="1" fill="#62DFA5"/><rect x="9" y="1" width="1" height="1" fill="#F0AEA5"/><rect x="5" y="2" width="1" height="1" fill="#62DFA5"/><rect x="8" y="2" width="1" height="1" fill="#F0AEA5"/><rect x="9" y="2" width="1" height="1" fill="#62DFA5"/><rect x="12" y="2" width="1" height="1" fill="#F0AEA5"/><rect x="3" y="3" width="1" height="1" fill="#62DFA5"/><rect x="6" y="3" width="1" height="1" fill="#62DFA5"/><rect x="8" y="3" width="1" height="1" fill="#62DFA5"/><rect x="9" y="3" width="1" height="1" fill="#62DFA5"/><rect x="17" y="3" width="1" height="1" fill="#62DFA5"/><rect x="5" y="4" width="1" height="1" fill="#F0AEA5"/><rect x="7" y="4" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="4" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="4" width="1" height="1" fill="#FFFFFF"/><rect x="13" y="4" width="1" height="1" fill="#62DFA5"/><rect x="14" y="4" width="1" height="1" fill="#62DFA5"/><rect x="16" y="4" width="1" height="1" fill="#62DFA5"/><rect x="2" y="5" width="1" height="1" fill="#62DFA5"/><rect x="4" y="5" width="1" height="1" fill="#F0AEA5"/><rect x="7" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="8" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="14" y="5" width="1" height="1" fill="#62DFA5"/><rect x="1" y="6" width="1" height="1" fill="#62DFA5"/><rect x="3" y="6" width="1" height="1" fill="#62DFA5"/><rect x="7" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="8" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="13" y="6" width="1" height="1" fill="#F0AEA5"/><rect x="14" y="6" width="1" height="1" fill="#F0AEA5"/><rect x="16" y="6" width="1" height="1" fill="#62DFA5"/><rect x="5" y="7" width="1" height="1" fill="#62DFA5"/><rect x="7" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="8" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="13" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="6" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="7" y="8" width="1" height="1" fill="#F0AEA5"/><rect x="10" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="14" y="8" width="1" height="1" fill="#F0AEA5"/><rect x="16" y="8" width="1" height="1" fill="#62DFA5"/><rect x="3" y="9" width="1" height="1" fill="#62DFA5"/><rect x="4" y="9" width="1" height="1" fill="#62DFA5"/><rect x="5" y="9" width="1" height="1" fill="#F0AEA5"/><rect x="6" y="9" width="1" height="1" fill="#F0AEA5"/><rect x="9" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="9" width="1" height="1" fill="#F0AEA5"/><rect x="7" y="10" width="1" height="1" fill="#F0AEA5"/><rect x="8" y="10" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="10" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="10" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="10" width="1" height="1" fill="#FFFFFF"/><rect x="3" y="11" width="1" height="1" fill="#62DFA5"/><rect x="6" y="11" width="1" height="1" fill="#62DFA5"/><rect x="7" y="11" width="1" height="1" fill="#F0AEA5"/><rect x="8" y="11" width="1" height="1" fill="#F0AEA5"/><rect x="9" y="11" width="1" height="1" fill="#F0AEA5"/><rect x="10" y="11" width="1" height="1" fill="#F0AEA5"/><rect x="10" y="13" width="1" height="1" fill="#F0AEA5"/><rect x="8" y="14" width="1" height="1" fill="#62DFA5"/></svg></span>
           <span class="c-kicker">Latest post</span>
@@ -470,6 +371,19 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
               stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
         </a>
+        <div class="c-left">
+          <div class="j-head"><h2>From the journal</h2><a class="j-all" href="/forsale/blog/">All posts</a></div>
+          <a class="c-row" href="/forsale/blog/superfun-games-for-news/">
+            <span class="c-num">01</span>
+            <span class="c-copy"><span class="c-title">Introducing Superfun Games for News</span>
+              <span class="j-date">July 22, 2026</span></span>
+          </a>
+          <a class="c-row" href="/forsale/blog/meet-superfun/">
+            <span class="c-num">02</span>
+            <span class="c-copy"><span class="c-title">Meet Superfun</span>
+              <span class="j-date">June 18, 2026</span></span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
