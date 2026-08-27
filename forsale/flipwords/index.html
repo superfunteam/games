@@ -9,20 +9,36 @@
   <link rel="icon" type="image/png" href="assets/icon.png">
   <link rel="apple-touch-icon" href="assets/icon.png">
 
-  <meta name="description" content="FlipWords is a complete, whitelabel daily word game. Ready to launch under your brand. Every newsroom needs a game.">
+  <link rel="canonical" href="https://superfun.games/forsale/flipwords/">
+  <meta name="description" content="Flip, flop, and swap your tiles to solve clues from all sides. A complete, whitelabel daily word game, ready to launch under your brand.">
 
   <!-- Social -->
   <meta property="og:url" content="https://superfun.games/forsale/flipwords/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="FlipWords &ndash; A daily word game for your newsroom">
-  <meta property="og:description" content="A complete, whitelabel daily word game. Ready to launch under your brand.">
+  <meta property="og:description" content="Flip, flop, and swap your tiles to solve clues from all sides. A complete, whitelabel daily word game, ready to launch under your brand.">
   <meta property="og:image" content="https://superfun.games/forsale/flipwords/assets/ogimage.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="FlipWords &ndash; A daily word game for your newsroom">
-  <meta name="twitter:description" content="A complete, whitelabel daily word game. Ready to launch under your brand.">
+  <meta name="twitter:description" content="Flip, flop, and swap your tiles to solve clues from all sides. A complete, whitelabel daily word game, ready to launch under your brand.">
   <meta name="twitter:image" content="https://superfun.games/forsale/flipwords/assets/ogimage.png">
+  <meta name="twitter:image:alt" content="FlipWords, a daily word game, shown on a phone">
+  <meta property="og:site_name" content="Superfun Games">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="FlipWords, a daily word game, shown on a phone">
+  <meta property="og:locale" content="en_US">
 
   <style>
+    /* Native cross-document view transitions */
+    @view-transition{navigation:auto}
+    ::view-transition-old(root){animation:vt-out .18s ease both}
+    ::view-transition-new(root){animation:vt-in .26s ease both}
+    @keyframes vt-out{to{opacity:0}}
+    @keyframes vt-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+    @media(prefers-reduced-motion:reduce){
+      ::view-transition-old(root),::view-transition-new(root){animation:none}
+    }
     @font-face{font-family:"SF Pro Display";src:url("/forsale/fonts/SF-Pro-Display-Light.woff2") format("woff2");font-weight:300;font-style:normal;font-display:swap}
     @font-face{font-family:"SF Pro Display";src:url("/forsale/fonts/SF-Pro-Display-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
     @font-face{font-family:"SF Pro Display";src:url("/forsale/fonts/SF-Pro-Display-Medium.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
