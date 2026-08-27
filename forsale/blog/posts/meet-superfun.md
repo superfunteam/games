@@ -2,6 +2,7 @@
 title: Meet Superfun
 date: 2026-06-18
 excerpt: We are Clark and Angie Wimberly, a two-person game shop just outside Austin, Texas.
+icon: texas
 ---
 
 We are **Clark and Angie Wimberly**, and Superfun Games is our family game shop. We live in Jonestown, a small town on the edge of Lake Travis about thirty minutes north of Austin, Texas.

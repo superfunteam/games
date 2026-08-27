@@ -2,6 +2,7 @@
 title: "Going viral: what makes a daily game shareable?"
 date: 2026-08-25
 excerpt: Five things every daily game needs if you want players to post about it on their own.
+icon: speech
 ---
 
 A daily game does not go viral because you added a share button. It goes viral because the player finishes with something they want to say. Your job is to hand them that feeling, and then get out of the way.

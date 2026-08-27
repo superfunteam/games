@@ -203,9 +203,75 @@ def _hsl(h, s, l):
     r, g, b = [(c,x,0),(x,c,0),(0,c,x),(0,x,c),(x,0,c),(c,0,x)][int(h//60) % 6]
     return "#%02X%02X%02X" % (round((r+m)*255), round((g+m)*255), round((b+m)*255))
 
-def cover_svg(slug, cols=32, rows=24):
-    """Hash-seeded pixel burst on a 4:3 grid. Every cell is the same size."""
+
+# Abstract pixel glyphs stamped into the middle of a cover. "#" = lit pixel.
+GLYPHS = {
+  "speech": [
+    " ######### ",
+    "###########",
+    "###########",
+    "###########",
+    "###########",
+    "###########",
+    "###########",
+    " ######### ",
+    "   ###     ",
+    "  ##       ",
+    " #         ",
+  ],
+  "texas": [
+    "#####   ###",
+    "###########",
+    "###########",
+    "###########",
+    " ##########",
+    " ######### ",
+    " ########  ",
+    "  #######  ",
+    "  ######   ",
+    "   ####    ",
+    "    ##     ",
+    "     #     ",
+  ],
+  "joystick": [
+    "    ###    ",
+    "   #####   ",
+    "   #####   ",
+    "    ###    ",
+    "     #     ",
+    "     #     ",
+    "     #     ",
+    "  #######  ",
+    " ######### ",
+    "###########",
+    "###########",
+    " ######### ",
+  ],
+}
+
+def _glyph_mask(name, cols, rows):
+    """Scaled, centred set of lit cells for a glyph, or an empty set."""
+    art = GLYPHS.get(name or "")
+    if not art:
+        return set()
+    gh, gw = len(art), max(len(r) for r in art)
+    scale = max(1, min((cols - 4) // gw, (rows - 4) // gh))
+    ox = (cols - gw*scale) // 2
+    oy = (rows - gh*scale) // 2
+    mask = set()
+    for y, row in enumerate(art):
+        for x, ch in enumerate(row):
+            if ch != "#":
+                continue
+            for dy in range(scale):
+                for dx in range(scale):
+                    mask.add((ox + x*scale + dx, oy + y*scale + dy))
+    return mask
+
+def cover_svg(slug, cols=32, rows=24, icon=None):
+    """Hash-seeded pixel burst on a 4:3 grid, optionally stamped with a glyph."""
     rnd = _rng(slug.encode())
+    mask = _glyph_mask(icon, cols, rows)
     base = rnd() * 360
     tri  = rnd() < 0.45                      # duotone or tritone
     hues = [base, base + (150 + rnd()*60 if tri else 22 + rnd()*26)]
@@ -221,16 +287,24 @@ def cover_svg(slug, cols=32, rows=24):
     cells = []
     for y in range(rows):
         for x in range(cols):
+            if (x, y) in mask:            # glyph pixels are painted last, on top
+                continue
             d = ((x-cx)**2 + (y-cy)**2) ** 0.5 / maxd
             # dense in the middle, scattering toward the edges
             p = max(0.0, 1.0 - d*1.18)
             if rnd() > p ** 1.55:
                 continue
-            if   d < 0.20: fill = core
+            if mask:
+                # keep the burst in the mid tones so the white glyph stays legible
+                fill = accent if (d < 0.42 or rnd() < 0.5) else mid
+            elif d < 0.20: fill = core
             elif d < 0.34: fill = core if rnd() < 0.72 else accent
             elif d < 0.52: fill = accent if rnd() < 0.68 else mid
             else:          fill = mid
             cells.append(f'<rect x="{x}" y="{y}" width="1" height="1" fill="{fill}"/>')
+    for (x, y) in sorted(mask):
+        fill = core if rnd() < 0.82 else accent   # a little texture inside the glyph
+        cells.append(f'<rect x="{x}" y="{y}" width="1" height="1" fill="{fill}"/>')
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {cols} {rows}" '
             f'preserveAspectRatio="xMidYMid slice" shape-rendering="crispEdges" role="img" '
             f'aria-label="Abstract pixel artwork">'
@@ -524,7 +598,7 @@ def build():
       <h1>{html.escape(p['title'])}</h1>
       <p class="post-meta">{pretty(p['date'])}</p>
     </div>
-    <div class="wrap post-head"><div class="post-cover">{cover_svg(p['slug'])}</div></div>
+    <div class="wrap post-head"><div class="post-cover">{cover_svg(p['slug'], icon=p.get('icon'))}</div></div>
     <div class="wrap post-body">
       {render_body(p['body'])}
     </div>
@@ -533,13 +607,13 @@ def build():
 {LIGHTBOX_JS}""" + FOOT)
         out = BLOG / p["slug"]
         out.mkdir(parents=True, exist_ok=True)
-        (out / "cover.svg").write_text(cover_svg(p["slug"]))
+        (out / "cover.svg").write_text(cover_svg(p["slug"], icon=p.get("icon")))
         (out / "index.html").write_text(page)
         print(f"  wrote blog/{p['slug']}/index.html")
 
     rows = "".join(
       f'''        <a class="post-row" href="/forsale/blog/{p["slug"]}/">
-          <span class="row-thumb">{cover_svg(p["slug"], 20, 15)}</span>
+          <span class="row-thumb">{cover_svg(p["slug"], 20, 15, p.get("icon"))}</span>
           <span class="row-copy">
             <span class="d">{pretty(p["date"])}</span>
             <h2>{html.escape(p["title"])}</h2>
@@ -581,7 +655,7 @@ def build():
     <div class="wrap">
       <div class="c-grid">
         <a class="c-feature" href="/forsale/blog/{L["slug"]}/">
-          <span class="c-cover">{cover_svg(L["slug"], 20, 15)}</span>
+          <span class="c-cover">{cover_svg(L["slug"], 20, 15, L.get("icon"))}</span>
           <span class="c-kicker">Latest post</span>
           <span class="c-ftitle">{html.escape(L["title"])}</span>
           <span class="c-fex">{html.escape(L["excerpt"])}</span>

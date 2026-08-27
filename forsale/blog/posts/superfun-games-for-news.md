@@ -2,6 +2,7 @@
 title: Introducing Superfun Games for News
 date: 2026-07-22
 excerpt: We build complete, whitelabel daily games for newsrooms. Here is the catalog and how it works.
+icon: joystick
 ---
 
 Every newsroom needs a game. Not because games are a nice extra, but because a daily puzzle is one of the few things a reader will come back for on purpose, at the same time, every day.
