@@ -92,15 +92,9 @@
     .card h3{font-size:23px;margin:0;letter-spacing:-.4px;line-height:1.15}
     .card .pitch{color:var(--muted);font-size:15px;line-height:1.45;margin:0}
     .card .pitch u{text-decoration-thickness:1.5px;text-underline-offset:2px}
-    /* Themed panel: the device render bleeds off the bottom edge */
-    .card-device{background:var(--accent);height:250px;overflow:hidden;
-      display:flex;justify-content:center;align-items:flex-start;padding:26px 20px 0}
-    .card-device img{width:100%;max-width:212px;height:auto;display:block}
-    /* single column: let the device scale up with the wider card */
-    @media(max-width:620px){
-      .card-device{height:300px}
-      .card-device img{max-width:258px}
-    }
+    /* Themed panel: the device render carries its own padding and bottom bleed */
+    .card-device{background:var(--accent);overflow:hidden}
+    .card-device img{width:100%;height:auto;display:block}
 
     .cta{padding:10px 0 56px}
     .cta .wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap}
