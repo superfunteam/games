@@ -100,9 +100,16 @@
     .phone .screen{border-radius:18px;overflow:hidden;background:#111;aspect-ratio:720/1400}
     .phone .screen img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
 
-    .cta{padding:10px 0 56px;text-align:center}
+    .cta{padding:10px 0 56px}
+    .cta .wrap{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+    .cta-copy{text-align:left;flex:1 1 420px;min-width:0}
     .cta h2{font-size:clamp(26px,4vw,38px);margin:0 0 8px;letter-spacing:-.5px}
-    .cta p{color:var(--muted);font-size:17px;margin:0 auto 22px;max-width:560px}
+    .cta p{color:var(--muted);font-size:17px;margin:0;max-width:560px}
+    .cta .btn-demo{flex:0 0 auto;margin-left:auto}
+    @media(max-width:640px){
+      .cta .wrap{flex-direction:column;align-items:flex-start;gap:22px}
+      .cta .btn-demo{margin-left:0}
+    }
     .btn{display:inline-flex;align-items:center;gap:8px;justify-content:center;
       font-family:"SF Pro Display";font-weight:700;font-size:15px;
       padding:11px 18px;border-radius:12px;border:1px solid transparent;cursor:pointer}
@@ -289,8 +296,10 @@
 
   <section class="cta">
     <div class="wrap">
-      <h2>Every newsroom needs a game.</h2>
-      <p>Book a 15-minute demo and we&rsquo;ll walk through the catalog, branding, pricing, and launch timing.</p>
+      <div class="cta-copy">
+        <h2>Every newsroom needs a game.</h2>
+        <p>Book a 15-minute demo and we&rsquo;ll walk through the catalog, branding, pricing, and launch timing.</p>
+      </div>
       <a class="btn-demo js-demo js-mailto" data-u="clark" data-d="superfun.team">Schedule a Demo</a>
     </div>
   </section>
