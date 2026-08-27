@@ -30,7 +30,7 @@ A finished game, branded as yours, is a fraction of the time and cost of buildin
 ::: game flipwords
 :::
 
-Each of those has its own one-pager with screenshots, specs, and a demo request form.
+Each of those has its own one-pager with screenshots, specs, and a demo request form. You can also grab the one-sheet PDF for any of them: [Texas Two Step](/forsale/texas-two-step/assets/superfun-games-texas-two-step-sheet.pdf), [Links](/forsale/links/assets/superfun-games-links-sheet.pdf), or [FlipWords](/forsale/flipwords/assets/superfun-games-flip-words-sheet.pdf).
 
 ## The part that makes daily actually possible
 

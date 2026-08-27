@@ -57,18 +57,24 @@ def build(slug):
     s = re.sub(r'(<h1>)[^<]*(</h1>)', rf'\g<1>{esc(name)}\g<2>', s, count=1)
     s = re.sub(r'(<p class="tagline">)[^<]*(</p>)', rf'\g<1>{esc(meta["tagline"])}\g<2>', s, count=1)
 
-    # --- meta strip -------------------------------------------------------
-    for key, label in [("meta_category","Category"),("meta_authoring","Authoring"),
-                       ("meta_platform","Platform"),("meta_delivery","Delivery")]:
-        s = re.sub(rf'(<div class="k">{label}</div><div class="v">)[^<]*(</div>)',
-                   rf'\g<1>{esc(meta[key])}\g<2>', s, count=1)
+    # --- meta strip (any meta_* key, in the order written in the .md) ------
+    cells = []
+    for k, v in meta.items():
+        if not k.startswith("meta_"):
+            continue
+        label = k[5:].replace("_", " ").title()
+        cells.append(f'<div class="meta"><div class="k">{esc(label)}</div>'
+                     f'<div class="v">{esc(v)}</div></div>')
+    if cells:
+        s = re.sub(r'<div class="meta-row">.*?\n      </div>',
+                   lambda m: '<div class="meta-row">\n        '
+                             + "\n        ".join(cells) + "\n      </div>",
+                   s, count=1, flags=re.S)
 
     # --- about ------------------------------------------------------------
     if "about" in secs:
         paras = [p.strip() for p in secs["about"].split("\n\n") if p.strip()]
-        blocks = [f'<p class="lead">{esc(paras[0])}</p>']
-        for p in paras[1:]:
-            blocks.append(f'<p class="lead" style="color:var(--muted);font-size:17px">{esc(p)}</p>')
+        blocks = [f'<p class="lead">{esc(para)}</p>' for para in paras]
         s = re.sub(r'(<p class="kicker">About [^<]*</p>\s*)(?:<p class="lead".*?</p>\s*)+',
                    lambda m: m.group(1) + "\n        ".join(blocks) + "\n      ", s, count=1, flags=re.S)
         s = re.sub(r'(<p class="kicker">About )[^<]*(</p>)', rf'\g<1>{esc(name)}\g<2>', s, count=1)
@@ -98,6 +104,16 @@ def build(slug):
         if len(lines) >= 2:
             s = re.sub(r'(<div class="pitch">\s*<h2>)[^<]*(</h2>\s*<p>)[^<]*(</p>)',
                        rf'\g<1>{esc(lines[0])}\g<2>{esc(lines[1])}\g<3>', s, count=1, flags=re.S)
+
+    # --- JSON-LD description follows the .md too ---------------------------
+    if "description" in meta:
+        s = re.sub(r'("@type":"SoftwareApplication".*?"description":)"[^"]*"',
+                   lambda m: m.group(1) + '"' + meta["description"].replace('"', "'") + '"',
+                   s, count=1, flags=re.S)
+
+    # --- one-sheet download links -----------------------------------------
+    if "onesheet" in meta:
+        s = re.sub(r'href="[^"]*\.pdf"', f'href="{meta["onesheet"]}"', s)
 
     # --- head meta --------------------------------------------------------
     if "description" in meta:

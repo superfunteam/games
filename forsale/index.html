@@ -8,6 +8,7 @@
 
   <link rel="icon" href="/wp-content/themes/superfun-games/images/logo-superfun.svg">
 
+  <link rel="apple-touch-icon" href="/forsale/apple-touch-icon.png">
   <link rel="canonical" href="https://superfun.games/forsale/">
   <meta name="description" content="Complete, whitelabel daily games you can launch under your own brand. Every newsroom needs a game.">
   <meta property="og:url" content="https://superfun.games/forsale/">
@@ -26,6 +27,8 @@
   <meta property="og:image:alt" content="Games for Sale: a daily word game from a Texas newsroom, with four game icons">
   <meta property="og:locale" content="en_US">
 
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Superfun Games","url":"https://superfun.games/forsale/","logo":"https://superfun.games/forsale/apple-touch-icon.png","address":{"@type":"PostalAddress","addressLocality":"Austin","addressRegion":"TX","addressCountry":"US"},"founder":[{"@type":"Person","name":"Clark Wimberly"},{"@type":"Person","name":"Angie Wimberly"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://superfun.games/forsale/flipwords/","name":"FlipWords"},{"@type":"ListItem","position":2,"url":"https://superfun.games/forsale/texas-two-step/","name":"Texas Two Step"},{"@type":"ListItem","position":3,"url":"https://superfun.games/forsale/links/","name":"Links"}]}</script>
   <style>
     /* Native cross-document view transitions */
     @view-transition{navigation:auto}
@@ -119,14 +122,14 @@
     .card-icon img,.card-icon svg{width:100%;height:100%;object-fit:cover;display:block}
     .card h3{font-size:23px;margin:0;letter-spacing:-.4px;line-height:1.15}
     .card .pitch{color:var(--muted);font-size:15px;line-height:1.45;margin:0}
-    .card .pitch u{text-decoration-thickness:auto;text-underline-offset:2px;text-decoration-color:var(--accent)}
+    .card .pitch u{text-decoration-thickness:1.5px;text-underline-offset:2px;text-decoration-color:var(--accent)}
     /* Themed panel: fixed ratio so every card's art matches, whatever the source size.
        The device renders carry their own padding and bottom bleed. */
     .card-device{background:var(--accent);overflow:hidden;aspect-ratio:2400/2520}
     .card-device img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
 
     /* journal (micro cards) */
-    .journal{padding:56px 0 6px}
+    .journal{padding:112px 0 92px}
     .j-head{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0 0 16px}
     .j-head h2{font-family:"SF Pro Display";font-weight:600;font-size:13px;letter-spacing:2px;
       text-transform:uppercase;color:var(--muted);margin:0}
@@ -134,14 +137,14 @@
     .j-all:hover{color:var(--ink)}
     .j-date{display:block;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;
       color:var(--muted);font-weight:700}
-    .j-micro{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;--thumb:120px}
-    .m-card{display:flex;gap:14px;align-items:center;min-width:0}
+    .j-micro{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;--thumb:160px}
+    .m-card{display:flex;flex-direction:row-reverse;gap:14px;align-items:flex-start;min-width:0}
     .m-thumb{flex:0 0 var(--thumb);width:var(--thumb);aspect-ratio:4/3;border-radius:10px;overflow:hidden}
     .m-thumb svg{width:100%;height:100%;display:block}
     .m-copy{min-width:0}
     .m-title{display:block;font-weight:600;font-size:15.5px;line-height:1.3;margin-top:4px}
     .m-card:hover .m-title{color:var(--muted)}
-    @media(max-width:900px){.j-micro{grid-template-columns:1fr;gap:16px;--thumb:104px}}
+    @media(max-width:900px){.j-micro{grid-template-columns:1fr;gap:26px;--thumb:144px}}
     .cta{padding:80px 0 92px}
     .cta .wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap}
     .cta-copy{text-align:left;flex:1;min-width:0}
@@ -335,7 +338,7 @@
           <div class="card-top">
             <div class="card-icon"><img src="icon-yours.png" alt=""></div>
             <h3>Your Game</h3>
-            <p class="pitch">Something new, just for you! Let&rsquo;s talk, <u>get in touch</u>.</p>
+            <p class="pitch">Something new, just for you! Quick-turnaround, <u>let&rsquo;s talk!</u></p>
           </div>
           <div class="card-device"><img src="device-yours.webp" alt="A new game on a phone"></div>
         </a>
@@ -367,7 +370,7 @@
           <span class="m-thumb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 15" preserveAspectRatio="xMidYMid slice" shape-rendering="crispEdges" role="img" aria-label="Abstract pixel artwork"><rect width="20" height="15" fill="#1A7BE6"/><rect x="14" y="0" width="1" height="1" fill="#A697F1"/><rect x="11" y="1" width="1" height="1" fill="#E1A079"/><rect x="3" y="4" width="1" height="1" fill="#A697F1"/><rect x="16" y="4" width="1" height="1" fill="#E1A079"/><rect x="16" y="5" width="1" height="1" fill="#E1A079"/><rect x="17" y="5" width="1" height="1" fill="#A697F1"/><rect x="3" y="6" width="1" height="1" fill="#E1A079"/><rect x="16" y="6" width="1" height="1" fill="#E1A079"/><rect x="2" y="8" width="1" height="1" fill="#E1A079"/><rect x="4" y="8" width="1" height="1" fill="#E1A079"/><rect x="16" y="8" width="1" height="1" fill="#E1A079"/><rect x="11" y="10" width="1" height="1" fill="#A697F1"/><rect x="14" y="10" width="1" height="1" fill="#E1A079"/><rect x="15" y="10" width="1" height="1" fill="#A697F1"/><rect x="7" y="11" width="1" height="1" fill="#A697F1"/><rect x="10" y="11" width="1" height="1" fill="#A697F1"/><rect x="11" y="11" width="1" height="1" fill="#A697F1"/><rect x="12" y="11" width="1" height="1" fill="#A697F1"/><rect x="13" y="11" width="1" height="1" fill="#E1A079"/><rect x="6" y="12" width="1" height="1" fill="#E1A079"/><rect x="10" y="12" width="1" height="1" fill="#A697F1"/><rect x="3" y="13" width="1" height="1" fill="#A697F1"/><rect x="7" y="13" width="1" height="1" fill="#A697F1"/><rect x="11" y="13" width="1" height="1" fill="#A697F1"/><rect x="4" y="14" width="1" height="1" fill="#A697F1"/><rect x="8" y="14" width="1" height="1" fill="#E1A079"/><rect x="13" y="14" width="1" height="1" fill="#A697F1"/><rect x="4" y="1" width="1" height="1" fill="#A697F1"/><rect x="4" y="2" width="1" height="1" fill="#FFFFFF"/><rect x="4" y="3" width="1" height="1" fill="#FFFFFF"/><rect x="4" y="4" width="1" height="1" fill="#FFFFFF"/><rect x="5" y="1" width="1" height="1" fill="#A697F1"/><rect x="5" y="2" width="1" height="1" fill="#FFFFFF"/><rect x="5" y="3" width="1" height="1" fill="#FFFFFF"/><rect x="5" y="4" width="1" height="1" fill="#FFFFFF"/><rect x="5" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="5" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="5" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="6" y="1" width="1" height="1" fill="#A697F1"/><rect x="6" y="2" width="1" height="1" fill="#FFFFFF"/><rect x="6" y="3" width="1" height="1" fill="#FFFFFF"/><rect x="6" y="4" width="1" height="1" fill="#FFFFFF"/><rect x="6" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="6" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="6" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="6" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="6" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="7" y="1" width="1" height="1" fill="#FFFFFF"/><rect x="7" y="2" width="1" height="1" fill="#A697F1"/><rect x="7" y="3" width="1" height="1" fill="#FFFFFF"/><rect x="7" y="4" width="1" height="1" fill="#FFFFFF"/><rect x="7" y="5" width="1" height="1" fill="#A697F1"/><rect x="7" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="7" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="7" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="7" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="7" y="10" width="1" height="1" fill="#FFFFFF"/><rect x="8" y="1" width="1" height="1" fill="#FFFFFF"/><rect x="8" y="2" width="1" height="1" fill="#FFFFFF"/><rect x="8" y="3" width="1" height="1" fill="#FFFFFF"/><rect x="8" y="4" width="1" height="1" fill="#FFFFFF"/><rect x="8" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="8" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="8" y="7" width="1" height="1" fill="#A697F1"/><rect x="8" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="8" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="8" y="10" width="1" height="1" fill="#FFFFFF"/><rect x="8" y="11" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="2" width="1" height="1" fill="#A697F1"/><rect x="9" y="3" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="4" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="9" y="9" width="1" height="1" fill="#A697F1"/><rect x="9" y="10" width="1" height="1" fill="#A697F1"/><rect x="9" y="11" width="1" height="1" fill="#A697F1"/><rect x="9" y="12" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="2" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="3" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="4" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="10" y="10" width="1" height="1" fill="#A697F1"/><rect x="11" y="2" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="3" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="4" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="11" y="9" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="1" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="2" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="3" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="4" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="7" width="1" height="1" fill="#FFFFFF"/><rect x="12" y="8" width="1" height="1" fill="#FFFFFF"/><rect x="13" y="1" width="1" height="1" fill="#A697F1"/><rect x="13" y="2" width="1" height="1" fill="#FFFFFF"/><rect x="13" y="3" width="1" height="1" fill="#FFFFFF"/><rect x="13" y="4" width="1" height="1" fill="#FFFFFF"/><rect x="13" y="5" width="1" height="1" fill="#FFFFFF"/><rect x="13" y="6" width="1" height="1" fill="#FFFFFF"/><rect x="14" y="1" width="1" height="1" fill="#A697F1"/><rect x="14" y="2" width="1" height="1" fill="#FFFFFF"/><rect x="14" y="3" width="1" height="1" fill="#FFFFFF"/><rect x="14" y="4" width="1" height="1" fill="#A697F1"/><rect x="14" y="5" width="1" height="1" fill="#FFFFFF"/></svg></span>
           <span class="m-copy">
             <span class="j-date">June 18, 2026</span>
-            <span class="m-title">Meet Superfun</span>
+            <span class="m-title">Meet Superfun, the fine folks making games</span>
           </span>
         </a>
       </div>

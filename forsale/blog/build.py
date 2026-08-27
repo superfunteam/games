@@ -35,7 +35,7 @@ Custom blocks:
   ::: game flipwords
   :::
 """
-import os, re, html, datetime, pathlib, hashlib
+import os, re, html, json, datetime, pathlib, hashlib
 
 ROOT   = pathlib.Path(__file__).resolve().parents[2]      # repo root
 BLOG   = ROOT / "forsale" / "blog"
@@ -310,6 +310,74 @@ def cover_svg(slug, cols=32, rows=24, icon=None):
             f'aria-label="Abstract pixel artwork">'
             f'<rect width="{cols}" height="{rows}" fill="{bg}"/>' + "".join(cells) + '</svg>')
 
+
+# ---------------------------------------------------------------- og image
+def cover_png(slug, title, out_path, icon=None, W=1200, H=630):
+    """Render the post's pixel cover as a real 1200x630 share card."""
+    try:
+        from PIL import Image, ImageDraw, ImageFont
+    except ImportError:
+        return False
+    cols, rows = 40, 21                       # ~16:9 grid of square cells
+    cell = W // cols
+    rnd  = _rng(slug.encode())
+    base = rnd() * 360
+    tri  = rnd() < 0.45
+    hues = [base, base + (150 + rnd()*60 if tri else 22 + rnd()*26)]
+    if tri: hues.append(base + 22 + rnd()*26)
+    def rgb(h):
+        h = h.lstrip("#"); return tuple(int(h[i:i+2], 16) for i in (0, 2, 4))
+    bg     = rgb(_hsl(hues[0], 0.62 + rnd()*0.2, 0.44 + rnd()*0.1))
+    mid    = rgb(_hsl(hues[1 % len(hues)], 0.60 + rnd()*0.22, 0.62 + rnd()*0.08))
+    accent = rgb(_hsl(hues[-1], 0.58 + rnd()*0.24, 0.72 + rnd()*0.08))
+    core   = (255, 255, 255)
+
+    img = Image.new("RGB", (W, H), bg)
+    d   = ImageDraw.Draw(img)
+    mask = _glyph_mask(icon, cols, rows)
+    cx, cy = (cols-1)/2, (rows-1)/2
+    maxd = (cx**2 + cy**2) ** 0.5
+    def box(x, y, fill):
+        d.rectangle([x*cell, y*cell, x*cell+cell-1, y*cell+cell-1], fill=fill)
+    for y in range(rows):
+        for x in range(cols):
+            if (x, y) in mask: continue
+            dd = ((x-cx)**2 + (y-cy)**2) ** 0.5 / maxd
+            pr = max(0.0, 1.0 - dd*1.18)
+            if rnd() > pr ** 1.55: continue
+            if mask:      fill = accent if (dd < 0.42 or rnd() < 0.5) else mid
+            elif dd<0.20: fill = core
+            elif dd<0.34: fill = core if rnd() < 0.72 else accent
+            elif dd<0.52: fill = accent if rnd() < 0.68 else mid
+            else:         fill = mid
+            box(x, y, fill)
+    for (x, y) in sorted(mask):
+        box(x, y, core if rnd() < 0.82 else accent)
+
+    # dark band along the bottom carrying the title
+    band = 220
+    d.rectangle([0, H-band, W, H], fill=(18, 20, 24))
+    font_path = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
+    try:
+        f_title = ImageFont.truetype(font_path, 54)
+        f_kick  = ImageFont.truetype(font_path, 24)
+    except OSError:
+        f_title = f_kick = ImageFont.load_default()
+    d.text((56, H-band+38), "SUPERFUN GAMES FOR NEWS", font=f_kick, fill=(150, 156, 166))
+    words, lines, cur = title.split(), [], ""
+    for w in words:
+        t = (cur + " " + w).strip()
+        if d.textlength(t, font=f_title) > W - 112 and cur:
+            lines.append(cur); cur = w
+        else:
+            cur = t
+        if len(lines) == 2: break
+    if cur and len(lines) < 2: lines.append(cur)
+    for i, ln in enumerate(lines[:2]):
+        d.text((56, H-band+82 + i*62), ln, font=f_title, fill=(255, 255, 255))
+    img.save(out_path, "PNG", optimize=True)
+    return True
+
 # ---------------------------------------------------------------- template
 FONTS = "".join(
   f'    @font-face{{font-family:"SF Pro Display";src:url("/forsale/fonts/SF-Pro-Display-{w}.woff2") '
@@ -364,17 +432,19 @@ POST_CSS = """    .post{padding:56px 0 20px}
       text-transform:uppercase;color:var(--muted);margin:0 0 12px}
     .post h1{font-size:clamp(32px,5vw,50px);line-height:1.06;letter-spacing:-1.4px;margin:0 0 14px;font-weight:700}
     .post-meta{color:var(--muted);font-size:15px;margin:0}
-    .post-cover{margin:26px 0 6px;border-radius:18px;overflow:hidden;aspect-ratio:4/3;max-width:520px}
+    .post-cover{margin:26px 0 6px;border-radius:18px;overflow:hidden;aspect-ratio:16/9}
     .post-cover svg{width:100%;height:100%;display:block}
-    .post-body{max-width:760px;padding:8px 0 40px;font-size:18px;line-height:1.65}
+    .post-body{max-width:760px;padding:8px 24px 40px;font-size:18px;line-height:1.65}
     .post-body h2{font-size:clamp(23px,2.6vw,29px);letter-spacing:-.5px;margin:44px 0 12px}
     .post-body h3{font-size:20px;margin:32px 0 8px}
     .post-body p{margin:0 0 20px}
     .post-body ul,.post-body ol{margin:0 0 22px;padding-left:22px}
     .post-body li{margin:0 0 10px}
     .post-body hr{border:0;border-top:1px solid var(--line);margin:38px 0}
-    .post-body a{color:var(--ink);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
-    .post-body a:hover{color:var(--muted)}
+    .post-body a:not(.game-feature){color:var(--ink);text-decoration:underline;
+      text-decoration-thickness:1.5px;text-underline-offset:3px}
+    .post-body a:not(.game-feature):hover{color:var(--muted)}
+    .post-body .game-feature,.post-body .game-feature *{text-decoration:none}
     .post-body code{background:var(--strip);padding:2px 6px;border-radius:5px;font-size:.9em}
     /* pull quote */
     .pull{margin:40px 0;padding:0}
@@ -424,7 +494,7 @@ POST_CSS = """    .post{padding:56px 0 20px}
     .lb-tip{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.7);
       font-size:13px;pointer-events:none}
     /* post nav */
-    .post-nav{border-top:1px solid var(--line);padding:26px 0 60px;display:flex;justify-content:space-between;
+    .post-nav{border-top:1px solid var(--line);padding:26px 24px 60px;display:flex;justify-content:space-between;
       gap:16px;flex-wrap:wrap;font-weight:600}
     .post-nav a{color:var(--muted)} .post-nav a:hover{color:var(--ink)}
 """
@@ -447,7 +517,7 @@ INDEX_CSS = """    .blog-hero{padding:60px 0 26px}
     .post-row:hover h2{color:var(--muted)}
 """
 
-def head(title, desc, canon, extra_css, og_img=f"{SITE}/forsale/ogimage.png"):
+def head(title, desc, canon, extra_css, og_img=f"{SITE}/forsale/ogimage.png", og_alt="Superfun Games for News", og_type="website", extra_head=""):
     return f"""<!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -459,7 +529,7 @@ def head(title, desc, canon, extra_css, og_img=f"{SITE}/forsale/ogimage.png"):
   <link rel="canonical" href="{canon}">
   <meta name="description" content="{html.escape(desc)}">
   <meta property="og:url" content="{canon}">
-  <meta property="og:type" content="article">
+  <meta property="og:type" content="{og_type}">
   <meta property="og:title" content="{html.escape(title)}">
   <meta property="og:description" content="{html.escape(desc)}">
   <meta property="og:image" content="{og_img}">
@@ -471,6 +541,10 @@ def head(title, desc, canon, extra_css, og_img=f"{SITE}/forsale/ogimage.png"):
   <meta name="twitter:title" content="{html.escape(title)}">
   <meta name="twitter:description" content="{html.escape(desc)}">
   <meta name="twitter:image" content="{og_img}">
+  <meta name="twitter:image:alt" content="{html.escape(og_alt)}">
+  <meta property="og:image:alt" content="{html.escape(og_alt)}">
+  <link rel="apple-touch-icon" href="/forsale/apple-touch-icon.png">
+{extra_head}
   <style>
 {BASE_CSS}{extra_css}  </style>
 </head>
@@ -591,7 +665,18 @@ def build():
         nav += f'<a href="/forsale/blog/{older["slug"]}/">&larr; {html.escape(older["title"])}</a>' if older else '<span></span>'
         nav += f'<a href="/forsale/blog/{newer["slug"]}/">{html.escape(newer["title"])} &rarr;</a>' if newer else '<span></span>'
         nav += '</div>'
-        page = (head(f"{p['title']} | Superfun Games for News", p["excerpt"], canon, POST_CSS)
+        og_img = f"{SITE}/forsale/blog/{p['slug']}/og.png"
+        ld = ('<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting",'
+              f'"headline":{json.dumps(p["title"])},"description":{json.dumps(p["excerpt"])},'
+              f'"datePublished":"{p["date"]}","dateModified":"{p["date"]}",'
+              f'"image":"{og_img}","mainEntityOfPage":"{canon}",'
+              '"author":{"@type":"Organization","name":"Superfun Games"},'
+              '"publisher":{"@type":"Organization","name":"Superfun Games"}}</script>')
+        extra = (f'  <meta property="article:published_time" content="{p["date"]}">\n'
+                 f'  <meta property="article:author" content="Superfun Games">\n  {ld}')
+        page = (head(f"{p['title']} | Superfun Games for News", p["excerpt"], canon, POST_CSS,
+                     og_img=og_img, og_alt=f"{p['title']} - Superfun Games for News",
+                     og_type="article", extra_head=extra)
           + f"""  <article class="post">
     <div class="wrap post-head">
       <p class="eyebrow"><a href="/forsale/blog/">Blog</a></p>
@@ -608,6 +693,7 @@ def build():
         out = BLOG / p["slug"]
         out.mkdir(parents=True, exist_ok=True)
         (out / "cover.svg").write_text(cover_svg(p["slug"], icon=p.get("icon")))
+        cover_png(p["slug"], p["title"], out / "og.png", p.get("icon"))
         (out / "index.html").write_text(page)
         print(f"  wrote blog/{p['slug']}/index.html")
 
@@ -622,7 +708,11 @@ def build():
         </a>\n''' for p in posts)
     idx = (head("Blog | Superfun Games for News",
                 "Notes on daily games, newsrooms, and what makes a puzzle worth sharing.",
-                f"{SITE}/forsale/blog/", INDEX_CSS)
+                f"{SITE}/forsale/blog/", INDEX_CSS,
+                og_alt="Notes from the Superfun Games shop", og_type="website",
+                extra_head='  <script type="application/ld+json">{"@context":"https://schema.org",'
+                           '"@type":"Blog","name":"Superfun Games for News","url":"' + SITE + '/forsale/blog/",'
+                           '"publisher":{"@type":"Organization","name":"Superfun Games"}}</script>')
       + f"""  <section class="blog-hero">
     <div class="wrap">
       <p class="eyebrow">Blog</p>

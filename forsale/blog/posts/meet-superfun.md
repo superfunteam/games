@@ -1,5 +1,5 @@
 ---
-title: Meet Superfun
+title: Meet Superfun, the fine folks making games
 date: 2026-06-18
 excerpt: We are Clark and Angie Wimberly, a two-person game shop just outside Austin, Texas.
 icon: texas

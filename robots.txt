@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://superfun.games/sitemap.xml
