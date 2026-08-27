@@ -26,11 +26,11 @@
     @font-face{font-family:"SF Pro Display";src:url("/forsale/fonts/SF-Pro-Display-Semibold.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
     @font-face{font-family:"SF Pro Display";src:url("/forsale/fonts/SF-Pro-Display-Bold.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
     :root{
-      --ink:#14161A;--muted:#6B7280;--line:#E7E9ED;--paper:#FFFFFF;--panel:#F7F8FA;--surface:#FFFFFF;--maxw:1220px;
+      --ink:#14161A;--muted:#6B7280;--line:#E7E9ED;--paper:#FFFFFF;--panel:#F7F8FA;--surface:#FFFFFF;--strip:#F4F4F1;--maxw:1220px;
       --green:#00E07A;--green-ink:#04351F;
     }
     :root.dark{
-      --ink:#F3F4F6;--muted:#9AA1AC;--line:#23262B;--paper:#0B0C0E;--panel:#131519;--surface:#171B21;
+      --ink:#F3F4F6;--muted:#9AA1AC;--line:#23262B;--paper:#0B0C0E;--panel:#131519;--surface:#171B21;--strip:#101215;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -78,7 +78,8 @@
     }
 
     /* Cards */
-    .games{padding:26px 0 60px}
+    /* full-bleed strip behind the cards */
+    .games{padding:44px 0 52px;background:var(--strip)}
     .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
     @media(max-width:1080px){.grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:620px){.grid{grid-template-columns:1fr}}
@@ -86,15 +87,17 @@
       border-radius:22px;overflow:hidden;color:inherit;text-align:center;
       transition:transform .16s ease,box-shadow .22s ease}
     .card:hover{transform:translateY(-4px);box-shadow:0 24px 46px -26px rgba(0,0,0,.4)}
-    .card-top{padding:32px 24px 26px;display:flex;flex-direction:column;align-items:center;gap:12px}
+    /* card-top grows so the art always bottom-aligns across a row */
+    .card-top{padding:32px 24px 26px;display:flex;flex-direction:column;align-items:center;gap:12px;flex:1}
     .card-icon{width:76px;height:76px;border-radius:19px;overflow:hidden;flex:0 0 auto}
     .card-icon img,.card-icon svg{width:100%;height:100%;object-fit:cover;display:block}
     .card h3{font-size:23px;margin:0;letter-spacing:-.4px;line-height:1.15}
     .card .pitch{color:var(--muted);font-size:15px;line-height:1.45;margin:0}
     .card .pitch u{text-decoration-thickness:1.5px;text-underline-offset:2px}
-    /* Themed panel: the device render carries its own padding and bottom bleed */
-    .card-device{background:var(--accent);overflow:hidden}
-    .card-device img{width:100%;height:auto;display:block}
+    /* Themed panel: fixed ratio so every card's art matches, whatever the source size.
+       The device renders carry their own padding and bottom bleed. */
+    .card-device{background:var(--accent);overflow:hidden;aspect-ratio:2400/2520}
+    .card-device img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
 
     .cta{padding:10px 0 56px}
     .cta .wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap}
@@ -434,6 +437,32 @@
         var email=(el.dataset.u||'')+'@'+(el.dataset.d||'');
         el.setAttribute('href','mailto:'+email+'?subject=Schedule%20a%20demo%20with%20Superfun%20Games');
       });
+    })();
+
+    /* Keep card blurbs the same height within each row, at any breakpoint.
+       Cards are grouped by their top offset, so 2-up and 1-up layouts regroup. */
+    (function(){
+      var pitches=[].slice.call(document.querySelectorAll('.card .pitch'));
+      if(!pitches.length) return;
+      var raf;
+      function equalize(){
+        pitches.forEach(function(p){p.style.minHeight='';});
+        var rows={};
+        pitches.forEach(function(p){
+          var top=Math.round(p.getBoundingClientRect().top+window.scrollY);
+          (rows[top]=rows[top]||[]).push(p);
+        });
+        Object.keys(rows).forEach(function(k){
+          var group=rows[k], max=0;
+          group.forEach(function(p){max=Math.max(max,p.getBoundingClientRect().height);});
+          group.forEach(function(p){p.style.minHeight=Math.ceil(max)+'px';});
+        });
+      }
+      function schedule(){cancelAnimationFrame(raf);raf=requestAnimationFrame(equalize);}
+      schedule();
+      window.addEventListener('resize',schedule);
+      if(document.fonts&&document.fonts.ready)document.fonts.ready.then(schedule);
+      window.addEventListener('load',schedule);
     })();
 
     /* Schedule-a-demo modal / bottom sheet */
