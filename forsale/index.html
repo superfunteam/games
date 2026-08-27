@@ -113,8 +113,11 @@
     .cta .wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap}
     .cta-copy{text-align:left;flex:1;min-width:0}
     .cta h2{font-size:clamp(26px,4vw,38px);margin:0 0 8px;letter-spacing:-.5px}
-    .cta p{color:var(--muted);font-size:17px;margin:0}
+    .cta p{color:var(--muted);font-size:clamp(18px,1.7vw,21px);line-height:1.5;margin:0;max-width:62ch}
     .cta .btn-demo{flex:0 0 auto;margin-left:auto}
+    @media(min-width:641px){
+      .cta .btn-demo{font-size:18px;padding:0 32px;min-height:60px;border-radius:15px}
+    }
     @media(max-width:640px){
       .cta .wrap{flex-direction:column;align-items:stretch;gap:20px}
       .cta-copy{flex:0 0 auto;width:100%}
@@ -312,7 +315,7 @@
     <div class="wrap">
       <div class="cta-copy">
         <h2>Every newsroom needs a game.</h2>
-        <p>Book a 15-minute demo and we&rsquo;ll walk through the catalog, branding, pricing, and launch timing.</p>
+        <p>Book a 15-minute demo and we&rsquo;ll walk through the catalog, branding, pricing, and launch timing. If we don&rsquo;t have a game for you, we&rsquo;ll make you one.</p>
       </div>
       <a class="btn-demo js-demo js-mailto" data-u="clark" data-d="superfun.team">Schedule a Demo</a>
     </div>
