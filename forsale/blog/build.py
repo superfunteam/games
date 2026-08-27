@@ -642,31 +642,20 @@ def build():
     latest = posts[0]
     home = ROOT / "forsale" / "index.html"
     s = home.read_text()
-    recent = posts[1:5] if len(posts) > 1 else []
-    L = latest
-    rows = "".join(
-      f'''          <a class="c-row" href="/forsale/blog/{r["slug"]}/">
-            <span class="c-num">{i+1:02d}</span>
-            <span class="c-copy"><span class="c-title">{html.escape(r["title"])}</span>
-              <span class="j-date">{pretty(r["date"])}</span></span>
-          </a>\n''' for i, r in enumerate(recent))
+    cards = "".join(
+      f'''        <a class="m-card" href="/forsale/blog/{r["slug"]}/">
+          <span class="m-thumb">{cover_svg(r["slug"], 20, 15, r.get("icon"))}</span>
+          <span class="m-copy">
+            <span class="j-date">{pretty(r["date"])}</span>
+            <span class="m-title">{html.escape(r["title"])}</span>
+          </span>
+        </a>\n''' for r in posts[:3])
     block = f'''<!-- BLOG:LATEST -->
-  <section class="journal jC">
+  <section class="journal">
     <div class="wrap">
-      <div class="c-grid">
-        <a class="c-feature" href="/forsale/blog/{L["slug"]}/">
-          <span class="c-cover">{cover_svg(L["slug"], 20, 15, L.get("icon"))}</span>
-          <span class="c-kicker">Latest post</span>
-          <span class="c-ftitle">{html.escape(L["title"])}</span>
-          <span class="c-fex">{html.escape(L["excerpt"])}</span>
-          <span class="j-more">Read the post
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
-              stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
-        </a>
-        <div class="c-left">
-          <div class="j-head"><h2>From the journal</h2><a class="j-all" href="/forsale/blog/">All posts</a></div>
-{rows}        </div>
-      </div>
+      <div class="j-head"><h2>From the journal</h2><a class="j-all" href="/forsale/blog/">All posts</a></div>
+      <div class="j-micro">
+{cards}      </div>
     </div>
   </section>
   <!-- /BLOG:LATEST -->'''
