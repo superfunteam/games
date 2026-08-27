@@ -35,6 +35,7 @@
       --paper:#FFFFFF;
       --panel:#F7F8FA;
       --surface:#FFFFFF;
+      --strip:#F4F4F1;
       --green:#4C9A2A;
       --green-ink:#FFFFFF;
       --radius:18px;
@@ -47,6 +48,7 @@
       --paper:#0B0C0E;
       --panel:#131519;
       --surface:#171B21;
+      --strip:#101215;
       --green:#4C9A2A;
       --green-ink:#FFFFFF;
     }
@@ -142,6 +144,7 @@
     .kicker{font-family:"SF Pro Display";font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:0 0 16px}
 
     /* ---------- Screenshot carousel ---------- */
+    .shots-strip{background:var(--strip);padding:44px 0 16px;margin-top:14px}
     .shots{position:relative}
     /* Both edges bleed to the viewport (margin calc(50% - 50vw) reaches each screen edge on
        wide layouts, and resolves to -24px on mobile). The matching left padding
@@ -380,7 +383,7 @@
   </section>
 
   <!-- ============ SCREENSHOTS ============ -->
-  <section class="block">
+  <section class="block shots-strip">
     <div class="wrap">
       <p class="kicker">Screenshots</p>
       <div class="shots">
