@@ -75,9 +75,9 @@ def build(slug):
     if "about" in secs:
         paras = [p.strip() for p in secs["about"].split("\n\n") if p.strip()]
         blocks = [f'<p class="lead">{esc(para)}</p>' for para in paras]
-        s = re.sub(r'(<p class="kicker">About [^<]*</p>\s*)(?:<p class="lead".*?</p>\s*)+',
+        s = re.sub(r'(<p class="kicker">About (?!Superfun Games)[^<]*</p>\s*)(?:<p class="lead".*?</p>\s*)+',
                    lambda m: m.group(1) + "\n        ".join(blocks) + "\n      ", s, count=1, flags=re.S)
-        s = re.sub(r'(<p class="kicker">About )[^<]*(</p>)', rf'\g<1>{esc(name)}\g<2>', s, count=1)
+        s = re.sub(r'(<p class="kicker">About )(?!Superfun Games)[^<]*(</p>)', rf'\g<1>{esc(name)}\g<2>', s, count=1)
 
     # --- what's included --------------------------------------------------
     if "included" in secs:

@@ -205,6 +205,7 @@
     @media(min-width:760px){.arrow{display:inline-flex}}
 
     /* ---------- Copy + features ---------- */
+    .copy-grid > div > .kicker:not(:first-child){margin-top:34px}
     .copy-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
     @media(max-width:760px){.copy-grid{grid-template-columns:1fr;gap:28px}}
     .lead{font-size:20px;line-height:1.6}
@@ -271,14 +272,14 @@
     /* playful floating tiles in the brand pane */
 
     /* Right form pane */
-    .demo-main{flex:1;min-width:0;display:flex;flex-direction:column;position:relative}
+    .demo-main{flex:1;min-width:0;min-height:0;display:flex;flex-direction:column;position:relative}
     .demo-close{
       position:absolute;top:14px;right:14px;z-index:3;width:38px;height:38px;border-radius:50%;
       border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;
       display:flex;align-items:center;justify-content:center;transition:background .15s,transform .1s}
     .demo-close:hover{background:var(--panel)}
     .demo-close:active{transform:scale(.92)}
-    .demo-main-scroll{padding:32px 34px;overflow-y:auto}
+    .demo-main-scroll{padding:32px 34px;overflow-y:auto;min-height:0;overscroll-behavior:contain}
     .demo-main h3{font-family:"SF Pro Display";font-weight:700;font-size:23px;letter-spacing:-.3px;margin:0 0 4px}
     .demo-main .sub{color:var(--muted);font-size:14.5px;margin:0 0 20px}
 
@@ -334,19 +335,46 @@
     /* Mobile: bottom sheet */
     @media(max-width:680px){
       .demo-overlay{padding:0;align-items:flex-end}
-      .demo-modal{flex-direction:column;width:100%;max-height:94vh;border-radius:24px 24px 0 0;
-        transform:translateY(100%);transition:transform .38s cubic-bezier(.2,.9,.3,1)}
+      /* bottom sheet: dvh so mobile browser chrome cannot clip it */
+      .demo-modal{
+        flex-direction:column;width:100%;max-width:none;
+        max-height:92vh;max-height:92dvh;border-radius:22px 22px 0 0;
+        transform:translateY(100%);transition:transform .38s cubic-bezier(.2,.9,.3,1);
+      }
       .demo-overlay.open .demo-modal{transform:none}
       .demo-modal::before{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);
         width:40px;height:4px;border-radius:4px;background:rgba(128,128,128,.4);z-index:6}
-      .demo-aside{flex:none;max-width:none;flex-direction:row;align-items:center;gap:14px;padding:26px 22px 18px;
-        border-right:none;border-bottom:1px solid var(--line)}
-      .demo-aside h2{font-size:22px}
+
+      /* header: icon + title on one row, email button full width beneath.
+         (a flex row squashed these, because the chip is width:100%) */
+      .demo-aside{
+        flex:0 0 auto;max-width:none;
+        display:grid;grid-template-columns:auto 1fr;
+        grid-template-areas:"icon head" "mail mail";
+        align-items:center;gap:12px 13px;
+        padding:24px 20px 16px;border-right:0;border-bottom:1px solid var(--line);
+      }
+      .demo-aside .aside-icon{grid-area:icon;width:46px;height:46px;border-radius:12px;padding:6px}
+      .demo-aside .aside-head{grid-area:head;min-width:0}
+      .demo-aside .aside-kicker{font-size:11px;letter-spacing:1.6px}
+      .demo-aside h2{font-size:19px;line-height:1.22;letter-spacing:-.2px}
       .demo-aside .aside-blurb{display:none}
-      .demo-aside .aside-foot{margin-top:0;margin-left:auto;align-items:flex-end}
-      .demo-main-scroll{padding:22px 22px calc(22px + env(safe-area-inset-bottom))}
+      .demo-aside .aside-foot{grid-area:mail;margin-top:2px}
+      .email-chip{min-height:48px;font-size:15px;padding:0 16px}
+
+      /* the scroll chain: every ancestor must be allowed to shrink */
+      .demo-main{flex:1 1 auto;min-height:0}
+      .demo-main-scroll{
+        flex:1 1 auto;min-height:0;
+        overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+        padding:20px 20px calc(26px + env(safe-area-inset-bottom));
+      }
+      .demo-close{top:12px;right:12px;width:36px;height:36px}
       .demo-form{grid-template-columns:1fr}
-      .btn-submit .s-label,.demo-close{}
+      /* comfortable tap targets */
+      .field input,.field select,.field textarea{font-size:16px;padding:13px 14px}
+      .btn-submit{min-height:52px}
+      .demo-success{padding:26px 22px}
     }
     @media(prefers-reduced-motion:reduce){
       .demo-overlay,.demo-modal,.demo-success{transition-duration:.01ms;animation:none}
@@ -427,6 +455,8 @@
   <section class="block">
     <div class="wrap copy-grid">
       <div>
+        <p class="kicker">About Superfun Games</p>
+      <p class="lead" style="max-width:760px">Superfun Games is a family game shop in Austin, TX, founded by <strong>Clark and Angie Wimberly</strong>. We make clever, quick games and puzzles that put play ahead of complicated rules, and we build whitelabel games that newsrooms and teams can proudly call their own.</p>
         <p class="kicker">About Links</p>
         <p class="lead">Links is a <strong>complete, ready-to-play daily word game</strong> your readers will come back for every day. We build it, brand it, and hand it over: your logo, your colors, your domain. No dev team required.</p>
         <p class="lead">Quick to learn, hard to put down, and engineered to build the daily habit that keeps an audience coming back to <em>your</em> site. Built-in <strong>friend codes</strong> allow players to add friends to their <strong>Links Club</strong> to easily share daily scores.</p>
@@ -445,13 +475,6 @@
     </div>
   </section>
 
-  <!-- ============ ABOUT SUPERFUN GAMES ============ -->
-  <section class="block">
-    <div class="wrap">
-      <p class="kicker">About Superfun Games</p>
-      <p class="lead" style="max-width:760px">Superfun Games is a family game shop in Austin, TX, founded by <strong>Clark and Angie Wimberly</strong>. We make clever, quick games and puzzles that put play ahead of complicated rules, and we build whitelabel games that newsrooms and teams can proudly call their own.</p>
-    </div>
-  </section>
 
   <!-- ============ COMBINED CTA ============ -->
   <section class="block">
@@ -482,7 +505,7 @@
       <!-- Brand pane -->
       <aside class="demo-aside">
         <div class="aside-icon"><img src="assets/icon.png" alt="Links icon"></div>
-        <div>
+        <div class="aside-head">
           <p class="aside-kicker">Links</p>
           <h2 id="demoTitle">Let&rsquo;s put a game on your site.</h2>
         </div>
