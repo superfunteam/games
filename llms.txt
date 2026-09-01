@@ -1,0 +1,33 @@
+# Superfun Games for News
+
+> Superfun Games builds complete, whitelabel daily games that newsrooms can launch under their own brand. Every game ships finished: your logo, your colors, your domain, no development work required.
+
+Superfun Games is a family game shop in Austin, Texas, founded by Clark and Angie Wimberly. Games can be taken off the shelf and rebranded, or designed from scratch for a specific newsroom. Puzzle production is AI assisted with a human editor approving everything that ships, which is what makes a daily cadence practical for a small team.
+
+## Games for sale
+
+- [FlipWords](https://superfun.games/forsale/flipwords/): Flip, flop, and swap your tiles to solve clues from all sides. A complete, whitelabel daily word game, ready to launch under your brand.
+- [Links](https://superfun.games/forsale/links/): Each clue tees up the next, in this word puzzle with golf scoring. A complete, whitelabel daily game, ready to launch under your brand.
+- [Texas Two Step](https://superfun.games/forsale/texas-two-step/): Twist your tiles to match the clues in this word game with Texas twang. A complete, whitelabel daily game, ready to launch under your brand.
+
+## One-sheets (PDF)
+
+- [FlipWords one-sheet](https://superfun.games/forsale/flipwords/assets/superfun-games-flip-words-sheet.pdf)
+- [Links one-sheet](https://superfun.games/forsale/links/assets/superfun-games-links-sheet.pdf)
+- [Texas Two Step one-sheet](https://superfun.games/forsale/texas-two-step/assets/superfun-games-texas-two-step-sheet.pdf)
+
+## Writing
+
+- [Going viral: what makes a daily game shareable?](https://superfun.games/forsale/blog/going-viral/): Five things every daily game needs if you want players to post about it on their own.
+- [Introducing Superfun Games for News](https://superfun.games/forsale/blog/superfun-games-for-news/): We build complete, whitelabel daily games for newsrooms. Here is the catalog and how it works.
+- [Meet Superfun, the fine folks making games](https://superfun.games/forsale/blog/meet-superfun/): We are Clark and Angie Wimberly, a two-person game shop just outside Austin, Texas.
+
+## Contact
+
+- [Request a demo](https://superfun.games/forsale/#demo): opens the demo form, which asks for newsroom, audience size, and budget.
+- Superfun Games, Austin, Texas, USA
+
+## Optional
+
+- [Full site text](https://superfun.games/llms-full.txt): every page inlined as plain text.
+- [Sitemap](https://superfun.games/sitemap.xml)

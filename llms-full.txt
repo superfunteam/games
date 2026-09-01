@@ -1,0 +1,222 @@
+# Superfun Games for News, full site text
+# Generated from the Markdown sources. Canonical pages live under https://superfun.games/forsale/.
+
+
+
+---
+
+# FlipWords
+URL: https://superfun.games/forsale/flipwords/
+Tagline: Flip, flop, and swap your tiles in this fast, addictive daily word puzzle. Ready to launch under your brand.
+Category: Daily Word Game
+Authoring: AI Assisted
+Platform: Web & Mobile
+Delivery: Ready to Ship
+One-sheet: https://superfun.games/forsale/flipwords/assets/superfun-games-flip-words-sheet.pdf
+
+## about
+FlipWords is a complete, ready-to-play daily word game your readers will come back for every day. We build it, brand it, and hand it over: your logo, your colors, your domain. No dev team required.
+
+Deceptively easy gameplay: drag the correct word tiles into the grid to complete all clues in all four directions. Flip, flop, and swap your way to glory.
+
+Quick to learn, hard to put down, and engineered to build the daily habit that keeps an audience coming back to your site.
+
+## included
+Fully whitelabeled | Your brand, palette, and domain, top to bottom.
+Complete & launch-ready | A finished game, not a prototype. Ships ready to go.
+Custom AI Puzzle Agent | Automatically write brand-safe puzzles by the dozens (or hundreds).
+Mobile-first & fast | Feels great on phones, loads in an instant.
+Built for daily return visits | Streaks and a fresh puzzle every day drive engagement.
+Full analytics and backroom | Track performance, make new puzzles, and manage your custom AI agents
+
+## superfun
+Superfun Games is a family game shop in Austin, TX, founded by Clark and Angie Wimberly. We make clever, quick games and puzzles that put play ahead of complicated rules, and we build whitelabel games that newsrooms and teams can proudly call their own.
+
+## cta
+Every newsroom needs a game.
+FlipWords is the fastest way to add one: complete, on-brand, and ready to ship. Let's get it on your site.
+
+
+---
+
+# Links
+URL: https://superfun.games/forsale/links/
+Tagline: A fast, addictive daily word puzzle where each clue tees up the next. Ready to launch under your brand.
+Category: Daily Word Game
+Authoring: AI Assisted
+Platform: Web & Mobile
+Delivery: Ready to Ship
+One-sheet: https://superfun.games/forsale/links/assets/superfun-games-links-sheet.pdf
+
+## about
+Links is a complete, ready-to-play daily word game your readers will come back for every day. We build it, brand it, and hand it over: your logo, your colors, your domain. No dev team required.
+
+Quick to learn, hard to put down, and engineered to build the daily habit that keeps an audience coming back to your site. Built-in friend codes allow players to add friends to their Links Club to easily share daily scores.
+
+## included
+Fully whitelabeled | Your brand, palette, and domain, top to bottom.
+Complete & launch-ready | A finished game, not a prototype. Ships ready to go.
+Custom AI Puzzle Agent | Automatically write brand-safe puzzles by the dozens (or hundreds).
+Mobile-first & fast | Feels great on phones, loads in an instant.
+Built for daily return visits | Friend codes and a fresh puzzle every day drive engagement.
+Full analytics and backroom | Track performance, make new puzzles, and manage your custom AI agents
+
+## superfun
+Superfun Games is a family game shop in Austin, TX, founded by Clark and Angie Wimberly. We make clever, quick games and puzzles that put play ahead of complicated rules, and we build whitelabel games that newsrooms and teams can proudly call their own.
+
+## cta
+Every newsroom needs a game.
+Links is the fastest way to add one: complete, on-brand, and ready to ship. Let's get it on your site.
+
+
+---
+
+# Texas Two Step
+URL: https://superfun.games/forsale/texas-two-step/
+Tagline: Twist your tiles in this fast, addictive daily word puzzle. Ready to launch under your brand.
+Category: Daily Word Game
+Authoring: AI Assisted
+Platform: Web & Mobile
+Delivery: Ready to Ship
+One-sheet: https://superfun.games/forsale/texas-two-step/assets/superfun-games-texas-two-step-sheet.pdf
+
+## about
+Texas Two Step is a complete, ready-to-play daily word game your readers will come back for every day. We build it, brand it, and hand it over: your logo, your colors, your domain. No dev team required.
+
+Deceptively easy gameplay: drag the correct word tiles into the grid to complete all clues in all four directions. Flip, swap, and flop your way to glory.
+
+Quick to learn, hard to put down, and engineered to build the daily habit that keeps an audience coming back to your site.
+
+## included
+Fully whitelabeled | Your Texas brand, palette, and domain, top to bottom.
+Complete & launch-ready | A finished game, not a prototype. Ships ready to go.
+Custom AI Puzzle Agent | Automatically write brand-safe puzzles by the dozens (or hundreds).
+Mobile-first & fast | Feels great on phones, loads in an instant.
+Built for daily return visits | Streaks and a fresh puzzle every day drive engagement.
+Full analytics and backroom | Track performance, make new puzzles, and manage your custom AI agents
+
+## superfun
+Superfun Games is a family game shop in Austin, TX, founded by Clark and Angie Wimberly. We make clever, quick games and puzzles that put play ahead of complicated rules, and we build whitelabel games that newsrooms and teams can proudly call their own.
+
+## cta
+Every newsroom needs a game.
+Texas Two Step is the fastest way to add one: complete, on-brand, and ready to ship. Yes we made this with you in mind. We'd love to chat, if you see a place for Two Step.
+
+
+---
+
+# Going viral: what makes a daily game shareable?
+URL: https://superfun.games/forsale/blog/going-viral/
+Published: 2026-08-25
+
+A daily game does not go viral because you added a share button. It goes viral because the player finishes with something they want to say. Your job is to hand them that feeling, and then get out of the way.
+
+Here is our short list.
+
+## 1. Fun gameplay
+
+Obviously. But worth stating, because no amount of clever sharing mechanics rescues a game people do not enjoy playing. If the core loop is not good, everything below is decoration.
+
+## 2. Players must feel clever
+
+This is the real engine. Nobody shares a puzzle they merely completed. They share a puzzle they cracked.
+
+That means the solution has to arrive as a small revelation: the moment where the trick clicks and the player feels a half-step smarter than they did a minute ago. Design for that click.
+
+Nobody posts a screenshot to say "I did the thing." They post it to say "look what I figured out."
+
+## 3. Or they must have JUST missed
+
+The flip side, and just as powerful. A near miss is intensely shareable, because it comes with a built-in argument.
+
+One stroke over par. One letter away. A guess that was defensible and still wrong. Those players open the group chat to plead their case, and pleading your case is sharing.
+
+The trick is that a near miss has to feel fair. If the player thinks the game cheated, they do not post it, they just leave.
+
+## 4. A decent share bug
+
+Once the feeling exists, it needs a container. The share artifact should be readable in a text message with no context, spoiler-free, and instantly recognizable as your game.
+
+Emoji grids caught on for a reason: they show the shape of your attempt without giving away the answer. Copy the principle, not the squares.
+
+/forsale/flipwords/assets/flipwords-4.webp | The solve
+/forsale/links/assets/links-5.webp | The scorecard
+/forsale/texas-two-step/assets/two-step-3.webp | The near miss
+
+## 5. Or a friend group
+
+If you can skip public sharing entirely, do. The strongest daily habits are small and social: a group of four coworkers, a family thread, two friends who have been trading scores for a year.
+
+Codes, private leaderboards, and head-to-head links all work here. Public virality is a spike. A friend group is a retention plan.
+
+---
+
+Put simply: make the player feel something worth reporting, then make it easy to report. Do the first part and the second is nearly free. Skip the first part and no share button will save you.
+
+If you want a daily game that does this, running under your own brand, we should talk (/forsale/).
+
+
+---
+
+# Introducing Superfun Games for News
+URL: https://superfun.games/forsale/blog/superfun-games-for-news/
+Published: 2026-07-22
+
+Every newsroom needs a game. Not because games are a nice extra, but because a daily puzzle is one of the few things a reader will come back for on purpose, at the same time, every day.
+
+We have been quietly building daily games for newsrooms around the country. Today we are putting the catalog in one place.
+
+## Two ways to work with us
+
+Take one off the shelf. Every game below is finished and ready to launch. We rebrand it in your colors, your typography, and your domain. Your readers never see our name unless you want them to.
+
+Or start from scratch. If you want something that only makes sense for your city, your beat, or your audience, we will design it with you. That is usually the more fun conversation.
+
+A finished game, branded as yours, is a fraction of the time and cost of building one.
+
+## The catalog
+
+Each of those has its own one-pager with screenshots, specs, and a demo request form. You can also grab the one-sheet PDF for any of them: Texas Two Step (/forsale/texas-two-step/assets/superfun-games-texas-two-step-sheet.pdf), Links (/forsale/links/assets/superfun-games-links-sheet.pdf), or FlipWords (/forsale/flipwords/assets/superfun-games-flip-words-sheet.pdf).
+
+## The part that makes daily actually possible
+
+A daily game is not really a design problem. It is a content problem. Somebody has to produce a fresh, fair, interesting puzzle every single day, forever, and that is where most in-house game projects quietly die.
+
+This is where AI has been genuinely transformative for us. Our tooling drafts and stress-tests puzzles ahead of time, checks difficulty curves, and flags anything ambiguous or unfair. What lands in front of an editor is a queue of candidates, not a blank page.
+
+The key word there is editor. A human still approves every puzzle that ships. Think of it as autopilot: it flies the route, a person is still in the seat, and nothing goes out without a hand on the wheel. That is what makes a daily cadence survivable for a small team.
+
+## More coming soon
+
+We have several more games in the shop, and a few being built right now with partners. If you want something specific, tell us. There is a decent chance it is already half-built on a whiteboard in Jonestown.
+
+
+---
+
+# Meet Superfun, the fine folks making games
+URL: https://superfun.games/forsale/blog/meet-superfun/
+Published: 2026-06-18
+
+We are Clark and Angie Wimberly, and Superfun Games is our family game shop. We live in Jonestown, a small town on the edge of Lake Travis about thirty minutes north of Austin, Texas.
+
+We have been making games together for years. Card games, party games, puzzles, and now daily games for the web. The throughline has always been the same: we like games that get people talking, and we are allergic to rulebooks that need a rulebook.
+
+If you have to explain it twice, we cut it.
+
+## What we have made
+
+Our first published game was Yes, Chef! (/yes-chef/), a cooking card game where you fight to collect ingredients and match recipes in a frantic kitchen battle. It taught us a lot about how quickly a table full of strangers can turn into a table full of friends.
+
+Then came LeRoy and Lewis (/leroy-and-lewis-the-game/), made with the Austin barbecue joint of the same name. Working with a real brand on a real game was the moment the whitelabel idea clicked for us.
+
+/forsale/texas-two-step/assets/two-step-1.webp | Texas Two Step
+/forsale/links/assets/links-1.webp | Links
+/forsale/flipwords/assets/flipwords-1.webp | FlipWords
+
+## Why daily games
+
+Somewhere along the way we noticed that the games we could not stop playing were the small ones. The five-minute ones. The ones with a fresh puzzle every morning and a streak you did not want to break.
+
+That is the shape we build in now, and it turns out newsrooms want exactly that: something quick, something branded, something readers come back for every single day.
+
+Come say hello. We answer our own email.

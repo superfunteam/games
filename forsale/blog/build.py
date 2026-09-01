@@ -526,6 +526,8 @@ def head(title, desc, canon, extra_css, og_img=f"{SITE}/forsale/ogimage.png", og
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#FFFFFF">
   <link rel="icon" href="/wp-content/themes/superfun-games/images/logo-superfun.svg">
+  <link rel="alternate" type="text/markdown" href="/llms.txt" title="llms.txt">
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Full site text">
   <link rel="canonical" href="{canon}">
   <meta name="description" content="{html.escape(desc)}">
   <meta property="og:url" content="{canon}">
