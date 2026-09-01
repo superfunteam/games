@@ -278,15 +278,15 @@
       .demo-aside{
         flex:0 0 auto;max-width:none;
         display:grid;grid-template-columns:auto 1fr;
-        grid-template-areas:"icon head" "mail mail";
+        grid-template-areas:"icon head" "blurb blurb" "mail mail";
         align-items:center;gap:12px 13px;
         padding:24px 20px 16px;border-right:0;border-bottom:1px solid var(--line);
       }
-      .demo-aside .aside-icon{grid-area:icon;width:46px;height:46px;border-radius:12px;padding:6px}
+      .demo-aside .aside-icon{grid-area:icon;width:48px;height:48px;border-radius:12px;padding:0}
       .demo-aside .aside-head{grid-area:head;min-width:0}
       .demo-aside .aside-kicker{font-size:11px;letter-spacing:1.6px}
       .demo-aside h2{font-size:19px;line-height:1.22;letter-spacing:-.2px}
-      .demo-aside .aside-blurb{display:none}
+      .demo-aside .aside-blurb{grid-area:blurb;display:block;font-size:14.5px;line-height:1.5;margin:0}
       .demo-aside .aside-foot{grid-area:mail;margin-top:2px}
       .email-chip{min-height:48px;font-size:15px;padding:0 16px}
 
