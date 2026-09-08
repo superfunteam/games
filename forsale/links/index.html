@@ -201,9 +201,10 @@
     .dot:hover{background:var(--muted)}
     .dot.active{background:var(--green);width:26px}
     .arrow{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;display:none;align-items:center;justify-content:center;transition:background .18s ease,border-color .18s ease,transform .1s ease}
-    .arrow:hover{background:var(--panel);border-color:var(--muted)}
-    .arrow:active{transform:scale(.92)}
+    .arrow:not(:disabled):hover{background:var(--panel);border-color:var(--muted)}
+    .arrow:not(:disabled):active{transform:scale(.92)}
     .arrow svg{width:17px;height:17px;display:block}
+    .arrow:disabled{opacity:.3;cursor:default}
     @media(min-width:760px){.arrow{display:inline-flex}}
 
     /* ---------- Copy + features ---------- */
@@ -620,32 +621,92 @@
       });
     })();
 
-    /* ---- Screenshot carousel: dots + arrows ---- */
+    /* ---- Screenshot carousel: dots + arrows ----
+       The rail cannot centre every slide. It clamps at both ends: the first cards sit at the
+       content column, and at full scroll the trailing cards are all on screen at once. So the
+       active index is authoritative state here, never re-derived from scrollLeft. Deriving it
+       pinned the index at the last centrable slide, which froze the dots and killed the next
+       arrow. Scroll position now only reconciles the index when the reader scrolls by hand. */
     (function(){
       var rail=document.getElementById('rail');
+      if(!rail) return;
       var slides=Array.prototype.slice.call(rail.children);
+      if(!slides.length) return;
       var dotsWrap=document.getElementById('dots');
+      var prevBtn=document.getElementById('prev');
+      var nextBtn=document.getElementById('next');
+      var last=slides.length-1;
+      var index=0;
+      var settling=false;                 /* true while our own smooth scroll is in flight */
+      var reduce=window.matchMedia('(prefers-reduced-motion:reduce)');
+
       slides.forEach(function(_,i){
         var d=document.createElement('button');
+        d.type='button';
         d.className='dot'+(i===0?' active':'');
         d.setAttribute('aria-label','Go to screenshot '+(i+1));
-        d.addEventListener('click',function(){slides[i].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});});
+        d.addEventListener('click',function(){goTo(i);});
         dotsWrap.appendChild(d);
       });
       var dots=Array.prototype.slice.call(dotsWrap.children);
-      function current(){
-        var mid=rail.scrollLeft+rail.clientWidth/2, best=0, bd=Infinity;
+
+      /* Where the browser can actually land when centring slide i, after its own clamping. */
+      function targetFor(i){
+        var s=slides[i], max=rail.scrollWidth-rail.clientWidth;
+        return Math.max(0,Math.min(max,s.offsetLeft+s.offsetWidth/2-rail.clientWidth/2));
+      }
+      function paint(){
+        dots.forEach(function(d,j){
+          d.classList.toggle('active',j===index);
+          d.setAttribute('aria-current',j===index?'true':'false');
+        });
+        if(prevBtn) prevBtn.disabled=(index<=0);
+        if(nextBtn) nextBtn.disabled=(index>=last);
+      }
+      /* Idle detector: every scroll tick pushes the release out, so the lock lasts exactly as
+         long as the animation does rather than a guessed duration. */
+      var releaseTimer=0;
+      function hold(){
+        settling=true;
+        window.clearTimeout(releaseTimer);
+        releaseTimer=window.setTimeout(function(){settling=false;},140);
+      }
+      function goTo(i){
+        index=Math.max(0,Math.min(last,i));
+        paint();
+        hold();
+        rail.scrollTo({left:targetFor(index),behavior:reduce.matches?'auto':'smooth'});
+      }
+      /* Pinning both extremes keeps the first and last dots reachable by hand, even though
+         those slides can never sit dead centre. */
+      function nearest(){
+        var sl=rail.scrollLeft, max=rail.scrollWidth-rail.clientWidth;
+        if(sl<=1) return 0;
+        if(sl>=max-1) return last;
+        var mid=sl+rail.clientWidth/2, best=0, bd=Infinity;
         slides.forEach(function(s,i){
           var c=s.offsetLeft+s.offsetWidth/2, dd=Math.abs(c-mid);
           if(dd<bd){bd=dd;best=i;}
         });
         return best;
       }
-      function sync(){var i=current();dots.forEach(function(d,j){d.classList.toggle('active',j===i);});}
-      rail.addEventListener('scroll',function(){window.requestAnimationFrame(sync);});
-      function go(dir){var i=Math.min(slides.length-1,Math.max(0,current()+dir));slides[i].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});}
-      document.getElementById('prev').addEventListener('click',function(){go(-1);});
-      document.getElementById('next').addEventListener('click',function(){go(1);});
+      var queued=0;
+      rail.addEventListener('scroll',function(){
+        if(settling){hold();return;}
+        if(queued) return;
+        queued=window.requestAnimationFrame(function(){
+          queued=0;
+          if(settling) return;
+          var i=nearest();
+          if(i!==index){index=i;paint();}
+        });
+      },{passive:true});
+      if('onscrollend' in window){
+        rail.addEventListener('scrollend',function(){window.clearTimeout(releaseTimer);settling=false;});
+      }
+      if(prevBtn) prevBtn.addEventListener('click',function(){goTo(index-1);});
+      if(nextBtn) nextBtn.addEventListener('click',function(){goTo(index+1);});
+      paint();
     })();
 
     /* ---- Bot-safe email: assembled from parts at runtime (never in the HTML source) ---- */
