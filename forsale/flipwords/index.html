@@ -55,8 +55,8 @@
       --panel:#F7F8FA;
       --surface:#FFFFFF;
       --strip:#F4F4F1;
-      --green:#00E07A;
-      --green-ink:#04351F;
+      --green:#CB97FF;
+      --green-ink:#2B1145;
       --radius:18px;
       --maxw:1180px;
     }
@@ -68,8 +68,8 @@
       --panel:#131519;
       --surface:#171B21;
       --strip:#101215;
-      --green:#00FF85;
-      --green-ink:#04351F;
+      --green:#CB97FF;
+      --green-ink:#2B1145;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -95,7 +95,7 @@
     }
     .site-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
     .brand{display:flex;align-items:center;gap:10px;font-family:"SF Pro Display";font-weight:700;font-size:18px}
-    .brand img{width:34px;height:34px} .brand-suffix{font-weight:500}
+    .brand img{width:34px;height:34px} .brand-suffix{font-weight:300}
     @media(max-width:640px){
       .brand-name{display:none}
       .head-actions .btn-full{display:none}
@@ -222,7 +222,7 @@
       margin:14px 0;padding:40px 32px;border-radius:var(--radius);
       background:color-mix(in srgb,var(--green) 12%,transparent);border:0;text-align:center;
     }
-    .pitch h2{font-size:clamp(26px,4vw,38px);margin:0 0 8px;letter-spacing:-.5px}
+    .pitch h2{font-size:clamp(26px,4vw,38px);line-height:1.25;margin:0 0 8px;letter-spacing:-.5px}
     .pitch p{color:var(--muted);font-size:17px;margin:0 auto;max-width:560px}
 
     /* ---------- Final CTA ---------- */
@@ -311,7 +311,7 @@
     .btn-submit:active{transform:translateY(1px)}
     .btn-submit[disabled]{cursor:default;opacity:.9}
     .btn-submit .s-label{display:inline-flex;align-items:center;gap:9px;transition:opacity .2s}
-    .btn-submit .s-spin{position:absolute;width:20px;height:20px;border:2.5px solid rgba(4,53,31,.35);border-top-color:#04351F;border-radius:50%;opacity:0;animation:spin .7s linear infinite}
+    .btn-submit .s-spin{position:absolute;width:20px;height:20px;border:2.5px solid rgba(43,17,69,.35);border-top-color:#2B1145;border-radius:50%;opacity:0;animation:spin .7s linear infinite}
     .btn-submit[data-state="loading"] .s-label{opacity:0}
     .btn-submit[data-state="loading"] .s-spin{opacity:1}
     @keyframes spin{to{transform:rotate(360deg)}}
@@ -752,7 +752,7 @@
         var box=canvas.parentElement.getBoundingClientRect();
         canvas.width=box.width; canvas.height=box.height;
         var ctx=canvas.getContext('2d');
-        var colors=['#00E07A','#F5B301','#1f3a5f','#EFE9DA','#FF6B6B','#7C5CFF'];
+        var colors=['#CB97FF','#F5B301','#1f3a5f','#EFE9DA','#FF6B6B','#7C5CFF'];
         var parts=[];
         for(var i=0;i<110;i++){
           parts.push({x:canvas.width/2,y:canvas.height*0.4,
