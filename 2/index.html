@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I played with chucky and lived | VHS Garage</title>
+  <title>I played with Chucky and lived | VHS Garage</title>
   <meta name="theme-color" content="#0c080e">
   <link rel="icon" type="image/png" href="/favicon.png">
-  <meta property="og:title" content="I played with chucky and lived">
+  <meta property="og:title" content="I played with Chucky and lived">
   <meta property="og:description" content="I beat Chucky's horror trivia at VHS Garage.">
   <meta property="og:image" content="https://superfun.games/2.png">
   <meta property="og:image:width" content="1080">
@@ -46,7 +46,7 @@
         const file = new File([blob], 'chucky-keepsake-2.png', { type: 'image/png' });
         if (!navigator.canShare({ files: [file] })) return;
         btn.hidden = false;
-        btn.onclick = () => navigator.share({ files: [file], title: 'I played with chucky and lived' }).catch(() => {});
+        btn.onclick = () => navigator.share({ files: [file], title: 'I played with Chucky and lived' }).catch(() => {});
       });
     }
   </script>
