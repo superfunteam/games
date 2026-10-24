@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chucky called me a nerd. i won anyway. | VHS Garage</title>
+  <meta name="theme-color" content="#0c080e">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta property="og:title" content="Chucky called me a nerd. i won anyway.">
+  <meta property="og:description" content="I beat Chucky's horror trivia at VHS Garage.">
+  <meta property="og:image" content="https://superfun.games/3.png">
+  <meta property="og:image:width" content="1080">
+  <meta property="og:image:height" content="1350">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://superfun.games/3.png">
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100dvh; background: #0c080e; color: #f6eed6;
+           font: 600 16px/1.4 ui-monospace, Menlo, Consolas, monospace;
+           display: flex; flex-direction: column; align-items: center; padding: 20px 16px 32px; }
+    img { display: block; width: 100%; max-width: 540px; height: auto; border: 3px solid #e8b030;
+          box-shadow: 0 0 0 6px #96141433, 0 18px 50px #000c; image-rendering: auto; }
+    .hint { color: #e8b030; margin: 16px 0 12px; text-align: center; letter-spacing: .04em; }
+    .buttons { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    a.btn, button.btn { font: inherit; letter-spacing: .06em; text-decoration: none; cursor: pointer;
+          padding: 12px 22px; border: 3px solid #e8b030; background: #e8b030; color: #0c080e; }
+    .btn.alt { background: transparent; color: #e8b030; }
+    footer { margin-top: 28px; color: #f6eed699; font-size: 13px; text-align: center; }
+    footer a { color: inherit; }
+  </style>
+</head>
+<body>
+  <img src="/3.png" width="1080" height="1350" alt="CHUCKY CALLED ME A NERD. I WON ANYWAY.">
+  <p class="hint">Hold the card to save it.</p>
+  <div class="buttons">
+    <a class="btn" href="/3.png" download="chucky-keepsake-3.png">SAVE</a>
+    <button class="btn alt" id="share" hidden>SHARE</button>
+  </div>
+  <footer>Chucky Trivia at VHS Garage &middot; made by <a href="/">Superfun</a></footer>
+  <script>
+    // Phones can hand the image itself to Photos, Instagram and friends.
+    const btn = document.getElementById('share');
+    if (navigator.canShare) {
+      fetch('/3.png').then(r => r.blob()).then(blob => {
+        const file = new File([blob], 'chucky-keepsake-3.png', { type: 'image/png' });
+        if (!navigator.canShare({ files: [file] })) return;
+        btn.hidden = false;
+        btn.onclick = () => navigator.share({ files: [file], title: 'Chucky called me a nerd. i won anyway.' }).catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>
